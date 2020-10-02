@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
-import { content } from "../content";
+import { content } from "../components/content";
 
 const Home = () => (
   <div>

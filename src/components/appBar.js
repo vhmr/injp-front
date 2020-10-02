@@ -1,20 +1,25 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import Menu from "./sections/menu";
+import Menu from "../sections/menu";
+import logo from "../logo.svg";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
     width: "100%",
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  sesion: {
+    color: "#fff",
+    textDecoration: "none",
   },
-  title: {
-    flexGrow: 1,
+  logo: {
+    width: "20%",
+  },
+  nav: {
+    backgroundColor: "rgb(0 0 0 / 70%)",
   },
 }));
 
@@ -23,12 +28,23 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Menu />
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">SignUp</Button>
-        </Toolbar>
+      <AppBar className={classes.nav} position="fixed">
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}
+        >
+          <Toolbar>
+            <Grid container direction="row" md={4} xs={4} align="center">
+              <img src={logo} className={classes.logo} alt="gif logo" />
+            </Grid>
+            <Grid container direction="row" md={8} xs={8}>
+              <Menu />
+            </Grid>
+          </Toolbar>
+        </Grid>
       </AppBar>
     </div>
   );

@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     width: 500,
     height: 500,
     borderRadius: "100%",
+    boxShadow: "0, 5, 10, 0, #331ba8",
   },
 }));
 
@@ -75,10 +76,12 @@ const About = () => {
           alignItems="center"
           md={6}
           xs={12}
+          align="center"
         >
           <img
             className={classes.img}
             src="https://source.unsplash.com/Dm-qxdynoEc/800x799"
+            alt="iglesia"
           />
         </Grid>
       </Grid>
