@@ -283,3 +283,40 @@ section span strong {
   font-size: 14px;
   display: block;
 }
+
+@media (max-width: 400px) {
+  .slider {
+    height: 100%;
+    width: 100%;
+    margin: 40px auto 0;
+    overflow: visible;
+    position: relative;
+  }
+  .mask {
+    overflow: hidden;
+    height: 400px;
+  }
+  .slider li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -400px;
+    list-style: none;
+  }
+  .slider .source {
+    font-size: 18px;
+    text-align: center;
+    padding: 20px;
+  }
+  .slider .quote {
+    font-size: 26px;
+    font-style: italic;
+    width: 100%;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  .slider section {
+    padding-left: 30px;
+  }
+}

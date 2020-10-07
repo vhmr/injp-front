@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingTop: 40,
     paddingBottom: 40,
+    backgroundColor: "#e2eaee",
   },
   title: {
     paddingTop: 40,
@@ -22,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   img: {
-    width: 500,
-    height: 500,
+    width: "100%",
+    height: "100%",
     borderRadius: "100%",
     boxShadow: "0, 5, 10, 0, #331ba8",
   },
