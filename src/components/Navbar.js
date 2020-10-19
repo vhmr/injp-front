@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { MdFingerprint } from "react-icons/md";
 import { IconContext } from "react-icons/lib";
 import { Button } from "./Button";
+import logo from "../logo.png";
 import "../Navbar.css";
 import "../Button.css";
 
@@ -11,6 +11,14 @@ function Navbar() {
   const [Click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
+  let scroll = (id) => () =>{
+    window.scroll({
+      top: (document.getElementById(id).offsetTop) -70,
+      behavior: 'smooth'
+    })    
+    setClick(false);
+  }
+  
   const handleClick = () => {
     setClick(!Click);
   };
@@ -29,15 +37,19 @@ function Navbar() {
 
   useEffect(() => {
     showButton();
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
   }, []);
 
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
-            <Link to="/" className="navbar-logo" onClick={closeButton}>
-              <MdFingerprint className="navbar-icons" />
-              VM
+          
+            <Link to="/" className="navbar-logo" onClick={scroll("slider")}>
+              <img src={logo} alt="inj" style={{width: 100}} />
             </Link>
           <div className="navbar-container contanier">
             <div className="menu-icon" onClick={handleClick}>
@@ -45,29 +57,29 @@ function Navbar() {
             </div>
             <ul className={Click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link to="/about" className="nav-links">
+                <div className="nav-links" onClick={scroll("about")}> 
                   Nosotros
-                </Link>
+                </div>
               </li>
-              <li className="nav-item" onClick={closeButton}>
-                <Link to="/devocionales" className="nav-links">
+              <li className="nav-item">
+                <div className="nav-links"  onClick={scroll("devocionales")}>
                   Devocionales
-                </Link>
+                </div>
               </li>
-              <li className="nav-item" onClick={closeButton}>
-                <Link to="/predicaciones" className="nav-links">
+              <li className="nav-item">
+                <div className="nav-links" onClick={scroll("predicacion")}>
                   Predicaciones
-                </Link>
+                </div>
               </li>
-              <li className="nav-item" onClick={closeButton}>
-                <Link to="ministerios" className="nav-links">
+              <li className="nav-item">
+                <div className="nav-links" onClick={scroll("ministerio")}>
                   Ministerios
-                </Link>
+                </div>
               </li>
-              <li className="nav-item" onClick={closeButton}>
-                <Link to="/contact" className="nav-links">
+              <li className="nav-item">
+                <div className="nav-links" onClick={scroll("contacto")}>
                   Contactos
-                </Link>
+                </div>
               </li>
               <li className="nav-btn">
                 {button ? (

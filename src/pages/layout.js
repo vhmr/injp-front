@@ -5,11 +5,13 @@ import Footer from "../sections/Footer";
 import Home from "./page_home";
 import About from "./page_about";
 import Contact from "./page_contacto";
-import Devocionales from "./layout_devocionales";
+import Devocionales from "./page_devocional";
 import Predicaciones from "./layout_predicaciones";
 import Ministerios from "./page_ministerio";
 
 export default function Layout() {
+
+
   return (
     <div className="app">
       <div className="app__sidebar" />

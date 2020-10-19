@@ -4,7 +4,7 @@ import "react-animated-slider/build/horizontal.css";
 import { content } from "../shared/content";
 
 const Home = () => (
-  <div>
+  <div id = "slider">
     <Slider className="slider-wrapper">
       {content.map((item, index) => (
         <div

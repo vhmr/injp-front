@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const Predicacion = (props) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="predicacion">
       <Grid
         container
         direction="row"

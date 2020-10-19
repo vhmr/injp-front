@@ -6,20 +6,19 @@ import {
   FaFacebook,
   FaInstagram,
   FaYoutube,
-  FaTwitter,
-  FaLinkedin
+  FaTwitter
 } from 'react-icons/fa';
-import { MdFingerprint } from 'react-icons/md';
+import logo from "../logo.png";
 
 function Footer() {
   return (
-    <div className='footer-container'>
+    <div className='footer-container' id="contacto">
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-          Join our exclusive membership to receive the latest news and trends
+          Unete a nuestra familia de la fé para recibir nuestro contenido 
         </p>
         <p className='footer-subscription-text'>
-          You can unsubscribe at any time.
+          Puedes suscribirte cuen quieras.
         </p>
         <div className='input-areas'>
           <form>
@@ -29,7 +28,7 @@ function Footer() {
               type='email'
               placeholder='Your Email'
             />
-            <Button buttonStyle='btn--outline'>Subscribe</Button>
+            <Button buttonStyle='btn--outline'>Suscribete</Button>
           </form>
         </div>
       </section>
@@ -72,11 +71,10 @@ function Footer() {
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              <MdFingerprint className='navbar-icon' />
-              VM
+              <img src={logo} alt="inj" style={{width: 100, height: 'auto', border: 0}} />
             </Link>
           </div>
-          <small className='website-rights'>VM © 2020</small>
+          <small className='website-rights'>Iglesia Nueva Jerusalen© 2020</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'
@@ -111,14 +109,6 @@ function Footer() {
               aria-label='Twitter'
             >
               <FaTwitter />
-            </Link>
-            <Link
-              className='social-icon-link'
-              to='/'
-              target='_blank'
-              aria-label='LinkedIn'
-            >
-              <FaLinkedin />
             </Link>
           </div>
         </div>

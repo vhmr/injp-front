@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const About = () => {
   const classes = useStyles();
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} id="about">
       <Grid
         container
         direction="row"
@@ -42,7 +42,7 @@ const About = () => {
         xs={12}
       >
         <Typography className={classes.title} variant="h4" component="h4">
-          About Us
+          Acerca de nosotros
         </Typography>
       </Grid>
       <Grid

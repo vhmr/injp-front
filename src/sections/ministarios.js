@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const Card = () => {
   const classes = useStyles();
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} id="ministerio">
       <Grid
         container
         className={classes.title}

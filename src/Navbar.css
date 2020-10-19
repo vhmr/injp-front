@@ -1,5 +1,5 @@
 .navbar {
-  background: #000000c7;
+  background: #0000008a;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -117,7 +117,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(25%, 50%);
   }
 
   .menu-icon {

@@ -32,7 +32,7 @@ const Galleria = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id ="gallery">
       <Grid container direction="row" justify="center" alignItems="center">
         <Typography className={classes.root} variant="h4" component="h4">
           Actividades

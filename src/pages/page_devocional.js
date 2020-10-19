@@ -3,6 +3,8 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { ImFacebook2, ImInstagram } from "react-icons/im";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
   img: {
     width: 400,
     height: 400,
-    borderRadius: "100%",
     boxShadow: "0, 5, 10, 0, #331ba8",
   },
 }));
