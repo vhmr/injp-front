@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { Button } from "../components/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "100%",
     boxShadow: "0, 5, 10, 0, #331ba8",
   },
+  paddingButton: {
+    textAlign: 'center'
+  }
 }));
 
 const About = () => {
@@ -69,6 +74,13 @@ const About = () => {
             with the release of Letraset sheets containing Lorem Ipsum passages,
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
+          </div>
+          <div className={classes.paddingButton}>
+            <Link to="/about">          
+              <Button buttonSize="btn--wide" buttonStyle="btn--outline-dark">
+                  Ver más...
+              </Button>
+            </Link>
           </div>
         </Grid>
         <Grid

@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { devocional } from "../shared/devocional";
+import { Button } from "../components/Button";
 import "../devo.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 18,
     justifyContent: "justify",
   },
+  paddingButton: {
+    textAlign: 'center',
+    marginTop: 30
+  }
 }));
 
 const Devocionales = () => {
@@ -53,6 +59,13 @@ const Devocionales = () => {
                     Posted by <strong>{item.user}</strong>
                   </span>
                 </section>
+                <div className={classes.paddingButton}>
+                  <Link to="/">          
+                    <Button buttonSize="btn--medium" buttonStyle="btn--outline-dark">
+                        Ver más...
+                    </Button>
+                  </Link>
+                </div>
               </li>
             ))}
           </ul>

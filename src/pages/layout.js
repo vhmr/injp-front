@@ -8,6 +8,7 @@ import Contact from "./page_contacto";
 import Devocionales from "./page_devocional";
 import Predicaciones from "./layout_predicaciones";
 import Ministerios from "./page_ministerio";
+import Actividades from "./page_actividades";
 
 export default function Layout() {
 
@@ -21,9 +22,10 @@ export default function Layout() {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/devocionales" component={Devocionales} />
-          <Route path="/ministerios" component={Ministerios} />
+          <Route path="/ministerio" component={Ministerios} />
           <Route path="/predicaciones" component={Predicaciones} />
           <Route path="/" component={Home} />
+          <Route path="/actividades" component={Actividades} />
         </Switch>
         <Footer />
       </main>

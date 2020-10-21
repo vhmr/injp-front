@@ -24,6 +24,13 @@
   transition: all 0.3s ease-out;
 }
 
+.btn--outline-dark {
+  background-color: transparent;
+  color: #242424;
+  border: 1px solid #242424;
+  transition: all 0.3s ease-out;
+}
+
 .btn--medium {
   padding: 8px 20px;
   font-size: 12px;
@@ -60,8 +67,9 @@
 
 .btn--wide:hover {
   transition: all 0.2s ease-out;
-  background-color: #f00946;
+  background-color: #211950;
   color: #fff;
+  border: 1px solid #fff;
 }
 
 .blue {

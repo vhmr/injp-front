@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Player } from "video-react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import "../../node_modules/video-react/dist/video-react.css";
+import { Button } from "../components/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
   box: {
     boxShadow: "0, 5, 10, 0, #331ba8",
   },
+  paddingButton: {
+    textAlign: 'center',
+    marginTop: 30
+  }
 }));
 
 const Predicacion = (props) => {
@@ -40,6 +46,13 @@ const Predicacion = (props) => {
         poster="/assets/poster.png"
         src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
       />
+      <div className={classes.paddingButton}>
+        <Link to="/about">          
+          <Button buttonSize="btn--wide" buttonStyle="btn--outline-dark">
+              Ver más...
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };

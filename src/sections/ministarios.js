@@ -1,11 +1,14 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import "../Card.scss";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "../components/card/CardHeader";
 import CardBody from "../components/card/CardBody";
+import { Button } from "../components/Button";
+import { ministerio } from "../shared/ministerios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 18,
     justifyContent: "justify",
   },
+  paddingButton: {
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20
+  }
 }));
 
 const Card = () => {
@@ -48,6 +56,7 @@ const Card = () => {
         spacing={2}
         xs={12}
       >
+        {ministerio.map((item, index) => (
         <Grid
           container
           direction="row"
@@ -56,133 +65,26 @@ const Card = () => {
           spacing={2}
           xs={12}
           md={4}
+          key={index}
         >
           <article className="card">
             <CardHeader
-              image={"https://source.unsplash.com/user/erondu/600x400"}
+              image={item.image}
             />
             <CardBody
-              title={"What happened in Thialand?"}
-              text={
-                "Kayaks crowd Three Sister Springs, where people and manatees maintain controversial coexistence"
-              }
+              title={item.title}
+              text={item.description}
             />
+            <div className={classes.paddingButton}>
+              <Link to="/ministerio">          
+                <Button buttonSize="btn--medium" buttonStyle="btn--outline-dark">
+                    Ver más...
+                </Button>
+              </Link>
+            </div>
           </article>
         </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          xs={12}
-          md={4}
-        >
-          <article className="card">
-            <CardHeader
-              image={"https://source.unsplash.com/user/erondu/600x400"}
-            />
-            <CardBody
-              title={"What happened in Thialand?"}
-              text={
-                "Kayaks crowd Three Sister Springs, where people and manatees maintain controversial coexistence"
-              }
-            />
-          </article>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          xs={12}
-          md={4}
-        >
-          <article className="card">
-            <CardHeader
-              image={"https://source.unsplash.com/user/erondu/600x400"}
-            />
-            <CardBody
-              title={"What happened in Thialand?"}
-              text={
-                "Kayaks crowd Three Sister Springs, where people and manatees maintain controversial coexistence"
-              }
-            />
-          </article>
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-        xs={12}
-      >
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          xs={12}
-          md={4}
-        >
-          <article className="card">
-            <CardHeader
-              image={"https://source.unsplash.com/user/erondu/600x400"}
-            />
-            <CardBody
-              title={"What happened in Thialand?"}
-              text={
-                "Kayaks crowd Three Sister Springs, where people and manatees maintain controversial coexistence"
-              }
-            />
-          </article>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          xs={12}
-          md={4}
-        >
-          <article className="card">
-            <CardHeader
-              image={"https://source.unsplash.com/user/erondu/600x400"}
-            />
-            <CardBody
-              title={"What happened in Thialand?"}
-              text={
-                "Kayaks crowd Three Sister Springs, where people and manatees maintain controversial coexistence"
-              }
-            />
-          </article>
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          xs={12}
-          md={4}
-        >
-          <article className="card">
-            <CardHeader
-              image={"https://source.unsplash.com/user/erondu/600x400"}
-            />
-            <CardBody
-              title={"What happened in Thialand?"}
-              text={
-                "Kayaks crowd Three Sister Springs, where people and manatees maintain controversial coexistence"
-              }
-            />
-          </article>
-        </Grid>
+        ))}
       </Grid>
     </Box>
   );

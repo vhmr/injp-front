@@ -1,10 +1,13 @@
 import React, { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "../shared/photos";
+import { Button } from "../components/Button";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  paddingButton: {
+    textAlign: 'center',
+    marginTop: 30
+  }
 }));
 
 const Galleria = () => {
@@ -53,6 +60,13 @@ const Galleria = () => {
           </Modal>
         ) : null}
       </ModalGateway>
+      <div className={classes.paddingButton}>
+        <Link to="/actividades">          
+          <Button buttonSize="btn--wide" buttonStyle="btn--outline-dark">
+              Ver más...
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };

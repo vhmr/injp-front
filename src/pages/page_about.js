@@ -4,6 +4,8 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import SlideTeam from "../components/slideTeam";
+import pastores1 from "../images/virgilimary.jpeg";
+import partores2 from "../images/victoralba.jpeg";
 
 //const iglesia = ["https://source.unsplash.com/Dm-qxdynoEc/800x799"];
 
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0, 5, 10, 0, #331ba8",
   },
   imgp: {
-    width: 500,
+    width: 400,
     height: 500,
     boxShadow: "0, 5, 10, 0, #331ba8",
   },
@@ -166,7 +168,7 @@ const About = () => {
           xs={12}
         >
           <Typography className={classes.title} variant="h4" component="h4">
-            Familia patoral
+            Familia pastoral
           </Typography>
         </Grid>
         <Grid
@@ -186,9 +188,12 @@ const About = () => {
           >
             <img
               className={classes.imgp}
-              src="https://source.unsplash.com/Dm-qxdynoEc/800x799"
+              src={pastores1}
               alt="iglesia"
             />
+          <Typography className={classes.title} variant="h6" component="h6">
+            Pastor Virgilio Reyes y su esposa Marielys Castro
+          </Typography>
           </Grid>
           <Grid
             direction="row"
@@ -200,9 +205,12 @@ const About = () => {
           >
             <img
               className={classes.imgp}
-              src="https://source.unsplash.com/Dm-qxdynoEc/800x799"
+              src={partores2}
               alt="iglesia"
             />
+          <Typography className={classes.title} variant="h6" component="h6">
+            Pastor Victor Montoya y su esposa Alba Ordoñez
+          </Typography>
           </Grid>
         </Grid>
       </Box>
