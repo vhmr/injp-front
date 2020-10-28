@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingTop: 40,
     paddingBottom: 40,
-    backgroundColor: "#e2eaee",
   },
   title: {
     paddingTop: 80,
@@ -52,7 +51,7 @@ const Devocionales = () => {
             {devocional.map((item, index) => (
               <li className={`anim${index + 1}`} key={index}>
                 <div className="quote">{item.title}</div>
-                <div className="source">- {item.description}</div>
+                <div className="source">- {item.extracto}</div>
                 <section>
                   <img src={item.userProfile} alt={item.user} />
                   <span>
@@ -60,7 +59,7 @@ const Devocionales = () => {
                   </span>
                 </section>
                 <div className={classes.paddingButton}>
-                  <Link to="/">          
+                  <Link to={`/devocional/${item.id}`}>          
                     <Button buttonSize="btn--medium" buttonStyle="btn--outline-dark">
                         Ver más...
                     </Button>

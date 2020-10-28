@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingTop: 40,
     paddingBottom: 40,
+    backgroundColor: "#fbfcfd",
   },
   title: {
     paddingTop: 80,
@@ -73,10 +74,10 @@ const Card = () => {
             />
             <CardBody
               title={item.title}
-              text={item.description}
+              text={item.extracto}
             />
             <div className={classes.paddingButton}>
-              <Link to="/ministerio">          
+              <Link to={`/ministerio/${item.id}`}>          
                 <Button buttonSize="btn--medium" buttonStyle="btn--outline-dark">
                     Ver más...
                 </Button>

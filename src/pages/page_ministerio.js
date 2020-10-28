@@ -1,139 +1,180 @@
-import React from 'react'
-import Grid from "@material-ui/core/Grid"
-import Box from "@material-ui/core/Box"
-import Typography from "@material-ui/core/Typography"
-import { makeStyles } from "@material-ui/core/styles"
-import Gallery from "../sections/gallery"
+import React, { useEffect } from "react";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import { ministerio } from "../shared/ministerios";
+import Actv from "../sections/gallery";
 
-const Styles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-      width: "100%",
-      paddingTop: 40,
-      paddingBottom: 40,
-      backgroundColor: "#e2eaee",
-    },
-    title: {
-      paddingTop: 40,
-      paddingBottom: 40,
-    },
-    parrafo: {
-      padding: 30,
-      fontSize: 20,
-      justifyContent: "justify",
-      textAlign: "center",
-    },
-    img: {
-      width: "80%",
-      height: "100%",
-      borderRadius: "80%",
-      boxShadow: "0, 5, 10, 0, #331ba8",
-    },
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    width: "100%",
+    paddingTop: 40,
+    paddingBottom: 40,
+  },
+  title: {
+    paddingTop: 80,
+    paddingBottom: 40,
+  },
+  title_postal: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    fontWeight: 0,
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#00000080',
+    padding: 30,
+    color: 'white'
+  },
+  parrafo: {
+    padding: 40,
+    fontSize: 18,
+    justifyContent: "justify",
+  },
+  paddingButton: {
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20
+  },
+  img: {
+    width: '100%',
+    height: 'auto',
+    boxShadow: "0, 5, 10, 0, #331ba8",
+  },
+  imgp: {
+    width: '70%',
+    height: 'auto',
+    boxShadow: "0, 5, 10, 0, #331ba8",
+  },
+  img_postal: {
+    width: "100%",
+    height: "auto",
+  },
 }));
+
+const Card = () => {
+  const classes = useStyles();
   
-const page_ministerio = (props) => {
-    const classes = Styles();
-    return (
-        <Box>
-            <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-            >
-                <Typography className={classes.title} variant="h3" component="h3">
-                {props.title ? props.title : 'Ministerios'}
-                </Typography>
-            </Grid>
-            <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-            >
-                <Grid
-                direction="row"
-                justify="center"
-                alignItems="center"
-                md={6}
-                xs={12}
-                >
-                <div className={classes.parrafo}>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry's standard dummy text
-                    ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not
-                    only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus
-                    PageMaker including versions of Lorem Ipsum.
-                </div>
-                </Grid>
-                <Grid
-                direction="row"
-                justify="center"
-                alignItems="center"
-                md={6}
-                xs={12}
-                align="center"
-                >
-                <img
-                    className={classes.img}
-                    src="https://source.unsplash.com/Dm-qxdynoEc/800x799"
-                    alt="iglesia"
-                />
-                </Grid>
-            </Grid>
-            <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                xs={12}
-            >
-                <Grid
-                direction="row"
-                justify="center"
-                alignItems="center"
-                md={6}
-                xs={12}
-                align="center"
-                >
-                <img
-                    className={classes.img}
-                    src="https://source.unsplash.com/Dm-qxdynoEc/800x799"
-                    alt="iglesia"
-                />
-                </Grid>
-                <Grid
-                direction="row"
-                justify="center"
-                alignItems="center"
-                md={6}
-                xs={12}
-                >
-                <div className={classes.parrafo}>
-                    <Typography className={classes.title} variant="h4" component="h4">
-                        {props.lider ? props.title : 'Autor'}
-                    </Typography>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry's standard dummy text
-                    ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not
-                    only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus
-                    PageMaker including versions of Lorem Ipsum.
-                </div>
-                </Grid>
-            </Grid>
+  let url = window.location.href;
+  let pique = url.split("/");
+  let id = pique[4];
 
-            <Gallery />
-        </Box>    
-    )
-}
+  let content = ministerio.find( m => m.id === id)
 
-export default page_ministerio
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, []);
+
+  return (
+    <>
+      <Box>
+      <Grid
+        direction="row"
+        justify="center"
+        alignItems="center"
+        md={12}
+        xs={12}
+        align="center"
+      >
+        <img
+          className={classes.img_postal}
+          src={content.imagen_postal}
+          alt="iglesia"
+          style={{filter: 'grayscale(100%)'}}
+        />
+      </Grid>
+    </Box>
+    <Box className={classes.root}>
+      <Grid
+          direction="row"
+          justify="center"
+          alignItems="center"
+          className={classes.title_postal}
+          md={12}
+          xs={12}
+          align="center"
+        >
+          <Typography variant="h2" component="h2">
+            {content.title}
+          </Typography>
+        </Grid>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={2}
+        xs={12}
+      >
+          <Grid
+            direction="row"
+            justify="center"
+            alignItems="center"
+            md={6}
+            xs={12}
+          >
+            <div className={classes.parrafo}>
+              {content.description}
+            </div>
+          </Grid>
+          <Grid
+            direction="row"
+            justify="center"
+            alignItems="center"
+            md={6}
+            xs={12}
+            align="center"
+          >
+            <img
+              className={classes.img}
+              src={content.image}
+              alt="iglesia"
+            />
+          </Grid> 
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        spacing={2}
+        xs={12}
+      >
+          <Grid
+            direction="row"
+            justify="center"
+            alignItems="center"
+            md={6}
+            xs={12}
+            align="center"
+          >
+            <img
+              className={classes.imgp}
+              src={content.foto_lider}
+              alt="iglesia"
+            />
+          </Grid>          
+          <Grid
+            direction="row"
+            justify="center"
+            alignItems="center"
+            md={6}
+            xs={12}
+          >
+            <div className={classes.parrafo}>
+              {content.bio_lider}
+            </div>
+          </Grid>
+        </Grid>          
+      </Grid>
+      <Actv />
+    </Box>
+  </>  
+  );
+};
+
+export default Card;

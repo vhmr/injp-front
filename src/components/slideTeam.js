@@ -1,6 +1,6 @@
 import React from "react";
 import InfiniteCarousel from "react-leaf-carousel";
-import { photos } from "../shared/photos";
+import { team } from "../shared/team";
 
 const SlideTeam = () => {
   return (
@@ -29,7 +29,7 @@ const SlideTeam = () => {
       slidesToShow={4}
       scrollOnDevice={true}
     >
-      {photos.map((x) => (
+      {team.map((x) => (
         <div>
           <img alt={x.title} src={x.src} />
         </div>

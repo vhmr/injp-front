@@ -5,6 +5,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "../components/Button";
+import logo from "../images/banner4.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingTop: 40,
     paddingBottom: 40,
-    backgroundColor: "#e2eaee",
   },
   title: {
     paddingTop: 40,
@@ -93,7 +93,7 @@ const About = () => {
         >
           <img
             className={classes.img}
-            src="https://source.unsplash.com/Dm-qxdynoEc/800x799"
+            src={logo}
             alt="iglesia"
           />
         </Grid>
