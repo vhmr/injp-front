@@ -6,7 +6,6 @@ import {
   FaFacebook,
   FaInstagram,
   FaYoutube,
-  FaTwitter
 } from 'react-icons/fa';
 import logo from "../logo.png";
 
@@ -18,7 +17,7 @@ function Footer() {
           Unete a nuestra familia de la fé para recibir nuestro contenido 
         </p>
         <p className='footer-subscription-text'>
-          Puedes suscribirte cuen quieras.
+          Puedes suscribirte cuando quieras.
         </p>
         <div className='input-areas'>
           <form>
@@ -35,35 +34,31 @@ function Footer() {
       <div className='footer-links'>
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
-            <h2>About Us</h2>
-            <Link to='/sign-up'>How it works</Link>
-            <Link to='/'>Testimonials</Link>
-            <Link to='/'>Careers</Link>
-            <Link to='/'>Investors</Link>
-            <Link to='/'>Terms of Service</Link>
+            <h2>Nosotros</h2>
+            <Link to='/'>Historia</Link>
+            <Link to='/'>Equipo de trabajo</Link>
+            <Link to='/'>Visión y Misión</Link>
           </div>
           <div className='footer-link-items'>
-            <h2>Contact Us</h2>
-            <Link to='/'>Contact</Link>
-            <Link to='/'>Support</Link>
-            <Link to='/'>Destinations</Link>
-            <Link to='/'>Sponsorships</Link>
+            <h2>Contactos</h2>
+            <Link to='/'>Contactos</Link>
+            <Link to='/'>Nuestra ubicación</Link>
+            <Link to='/'>Donaciones</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>Videos</h2>
-            <Link to='/'>Submit Video</Link>
-            <Link to='/'>Ambassadors</Link>
-            <Link to='/'>Agency</Link>
-            <Link to='/'>Influencer</Link>
+            <Link to='/'>Canal</Link>
+            <Link to='/'>Última predica</Link>
+            <Link to='/'>Serie corazón apasionado por cristo</Link>
+            <Link to='/'>Serie un paso a la vez</Link>
           </div>
           <div className='footer-link-items'>
             <h2>Social Media</h2>
-            <Link to='/'>Instagram</Link>
-            <Link to='/'>Facebook</Link>
-            <Link to='/'>Youtube</Link>
-            <Link to='/'>Twitter</Link>
+            <Link to='//www.instagram.com/nuevajerusalemvzla/' target='_blank'>Instagram</Link>
+            <Link to='//www.facebook.com/NuevaJerusalemvzla' target='_blank'>Facebook</Link>
+            <Link to='//youtube.com/channel/UCrbqmYxApdICQJXjPY6EFsw' target='_blank'>Youtube</Link>
           </div>
         </div>
       </div>
@@ -74,11 +69,11 @@ function Footer() {
               <img src={logo} alt="inj" style={{width: 100, height: 'auto', border: 0}} />
             </Link>
           </div>
-          <small className='website-rights'>Iglesia Nueva Jerusalen© 2020</small>
+          <small className='website-rights'>Iglesia Nueva Jerusalen© 2021</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'
-              to='/'
+              to='//www.facebook.com/NuevaJerusalemvzla'
               target='_blank'
               aria-label='Facebook'
             >
@@ -86,7 +81,7 @@ function Footer() {
             </Link>
             <Link
               className='social-icon-link'
-              to='/'
+              to='//www.instagram.com/nuevajerusalemvzla/'
               target='_blank'
               aria-label='Instagram'
             >
@@ -95,20 +90,12 @@ function Footer() {
             <Link
               className='social-icon-link'
               to={
-                '//www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber'
+                '//youtube.com/channel/UCrbqmYxApdICQJXjPY6EFsw'
               }
               target='_blank'
               aria-label='Youtube'
             >
               <FaYoutube />
-            </Link>
-            <Link
-              className='social-icon-link'
-              to='/'
-              target='_blank'
-              aria-label='Twitter'
-            >
-              <FaTwitter />
             </Link>
           </div>
         </div>

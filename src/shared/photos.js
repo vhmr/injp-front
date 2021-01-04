@@ -1,46 +1,56 @@
+import act1 from "../images/actividades/1.jpg";
+import act2 from "../images/actividades/2.jpg";
+import act3 from "../images/actividades/3.jpeg";
+import act4 from "../images/actividades/4.jpeg";
+import act5 from "../images/actividades/5.jpeg";
+import act6 from "../images/actividades/6.jpeg";
+import act7 from "../images/actividades/7.jpeg";
+import act8 from "../images/actividades/8.jpeg";
+import act9 from "../images/actividades/9.jpeg";
+
 export const photos = [
   {
-    src: "../images/henryjaqui",
+    src: act1,
     width: 4,
     height: 3,
   },
   {
-    src: "../images/miguelsilvia.jpeg",
+    src: act2,
     width: 1,
     height: 1,
   },
   {
-    src: "../images/miguelerly.jpeg",
+    src: act3,
     width: 3,
     height: 4,
   },
   {
-    src: "../images/ely.jpeg",
+    src: act4,
     width: 3,
     height: 4,
   },
   {
-    src: "../images/anny.jpeg",
+    src: act5,
     width: 3,
     height: 4,
   },
   {
-    src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+    src: act6,
     width: 4,
     height: 3,
   },
   {
-    src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
+    src: act7,
     width: 3,
     height: 4,
   },
   {
-    src: "https://source.unsplash.com/PpOHJezOalU/800x599",
+    src: act8,
     width: 4,
     height: 3,
   },
   {
-    src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
+    src: act9,
     width: 4,
     height: 3,
   },

@@ -1,5 +1,6 @@
 import React from "react";
 import { Slide } from "react-slideshow-image";
+import slider1 from "../images/slider/slider1"
 
 const slideImages = [
   "https://source.unsplash.com/Dm-qxdynoEc/800x799",

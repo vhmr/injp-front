@@ -48,7 +48,7 @@ const Predicacion = (props) => {
         src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
       />
       <div className={classes.paddingButton}>
-        <Link to="/predicaciones">          
+        <Link to={'//youtube.com/channel/UCrbqmYxApdICQJXjPY6EFsw'} target='_blank'>          
           <Button buttonSize="btn--wide" buttonStyle="btn--outline-dark">
               Ver más...
           </Button>

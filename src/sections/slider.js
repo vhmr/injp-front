@@ -1,32 +1,36 @@
-import React from "react";
+import React, { Component } from "react";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
+import Carousel from 'nuka-carousel';
 import { content } from "../shared/content";
 
-const Home = () => (
-  <div id = "slider">
-    <Slider className="slider-wrapper">
-      {content.map((item, index) => (
-        <div
-          key={index}
-          className="slider-content"
-          style={{ background: `url('${item.image}') no-repeat center center` }}
-        >
-          <div className="inner">
-            <h1>{item.title}</h1>
-            <p>{item.description}</p>
-            <button>{item.button}</button>
-          </div>
-          <section>
-            <img src={item.userProfile} alt={item.user} />
-            <span>
-              Posted by <strong>{item.user}</strong>
-            </span>
-          </section>
-        </div>
-      ))}
-    </Slider>
-  </div>
-);
+class Home extends Component {
+
+  state = {
+    slideIndex: 0
+  };
+ 
+  render() {
+    return(
+      <Carousel
+        renderCenterLeftControls={({ previousSlide }) => (
+          <button onClick={previousSlide}>Previous</button>
+        )}
+        renderCenterRightControls={({ nextSlide }) => (
+          <button onClick={nextSlide}>Next</button>
+        )}
+        autoplay={true}
+        width="100%"
+        height="1000px"
+        style={{ margin: "0px", overflow: "hidden"}}
+        autoplayInterval={5000}
+      >
+        {content.map((item, index) => (
+          <img src={item.image}  />
+        ))}
+      </Carousel>
+    );
+  }
+};
 
 export default Home;

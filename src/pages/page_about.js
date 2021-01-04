@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
@@ -22,7 +22,13 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 40,
   },
   parrafo: {
-    padding: 30,
+    padding: 80,
+    fontSize: 20,
+    justifyContent: "justify",
+    textAlign: "center",
+  },
+  parrafo2: {
+    padding: 20,
     fontSize: 20,
     justifyContent: "justify",
     textAlign: "center",
@@ -40,12 +46,20 @@ const useStyles = makeStyles((theme) => ({
   },
   img_postal: {
     width: "100%",
-    height: "auto",
+    height: "100vh",
   },
 }));
 
 const About = () => {
   const classes = useStyles();
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, []);
+
   return (
     <div>
       <Box>
@@ -92,16 +106,8 @@ const About = () => {
             xs={12}
           >
             <div className={classes.parrafo}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+            La iglesia Nueva Jerusalem fue fundada el 15 de Enero de 1990, en las instalaciones dela U.E Arco de Triunfo, por el Pastor Adoniran Diaz y la Hermana Lidia Rico quien que  habitaba en Las Delicias Carapita, lugar donde inició sus actividades. La iglesia en sus inicios fue hija de la Iglesia Nueva Jerusalem ubicada en el paraíso y por eso adopta el mismo nombre.  El trabajo que la iglesia realizaba en ese momento era básicamente el evangelismo infantil y las primeras almas ganadas fueron niños, años más tarde Dios permitió la adquisición de un local para su funcionamiento, allí estuvimos por varios años, luego se trasladó  la cede a Antimano y posteriormente a la Pastora lugar donde funciona hoy. Durante todos estos años Dios nos ha dado el privilegio de servirle en diferentes áreas así como volver a aperturar actividades en la cede original ubicada en Carapita. Actualmente sus pastores son   Virgilio Reyes (pastor Principal )  y Victor Montoya (pastor de Jóvenes) La iglesia funciona con  distintos Ministerios para el engrandecimiento de la obra de Dios. 
+            Seguimos bajo la mano del altísimo, confiando en que día a día cumple su propósito a través de su iglesia. 
             </div>
           </Grid>
         </Grid>
@@ -132,7 +138,7 @@ const About = () => {
             Misión
           </Typography>
           </Grid>
-            <div className={classes.parrafo}>
+            <div className={classes.parrafo2}>
                 Vivir para la gloria de Dios haciendo discípulos para nuestro Señor Jesucristo.
             </div>
           </Grid>
@@ -155,7 +161,7 @@ const About = () => {
             Visión
           </Typography>
           </Grid>
-            <div className={classes.parrafo}>
+            <div className={classes.parrafo2}>
               Ser una iglesia fiel al Señor Jesucristo y su palabra, compuesta por failias consagradas a serviri al Señor y expandir el evangelio en la comunidad.
             </div>
           </Grid>

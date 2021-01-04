@@ -1,10 +1,13 @@
+import slider1 from "../images/slider/slider1.jpeg";
+
+
 export const content = [
   {
     title: "Vulputate Mollis Ultricies Fermentum Parturient",
     description:
       "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis.",
     button: "Read More",
-    image: "https://i.imgur.com/ZXBtVw7.jpg",
+    image: slider1,
     user: "Luan Gjokaj",
     userProfile: "https://i.imgur.com/JSW6mEk.png",
   },

@@ -57,10 +57,10 @@ export const ministerio = [
         button: "Ver MÁS",
         image: mdj1,
         imagen_postal: mdj2,
-        description: "El ministerio de jóvenes esta comprendio por lo preadolescentes, adolescentes y jóvenes solteros que son partes de nuestra congregación, nuestro objetivo es conducir a un conocimiento y madurez en Cristo por medio de educación cristiana, consejería y actividades enfocadas en su crecimiento espíritual.",
-        lider: "Pastor Victor Montoya y su esposa Alba Ordoñez",
+        description: "EL ministerio de jóvenes está conformado por los pre-adolescentes, adolescentes y jóvenes solteros que son parte de nuestra congregación con el objetivo de conducirlos al conocimiento y madurez que requiere un hijo de Dios reflejando su gloria y siendo canal de bendición para otros.",
+        lider: "Pastor Victor Montoya y su esposa Alba de Montoya",
         foto_lider: va,
-        bio_lider: "Tenemos alrededor de tres años sirviendo al Señor por medio del ministerio de jóvenes, casi el mismo tiempo desde que Dios y nuestra iglesia nos dieron este ministerio pastoral tan hermoso, abocados a la llevar la mejor educación cristiana, consejería y actividades para nuestros jóvenes. Ninguno tenga en poco tu juventud, sino sé ejemplo de los creyentes en palabra, conducta, amor, espíritu, fe y pureza. 1 Timoteo 4:12 Reina-Valera 1960",
+        bio_lider: "Victor Hugo Montoya Rada junto a su esposa Alba de Montoya iniciaron su Pastorado en el año 2017 en nuestra Iglesia Nueva Jerusalem de la Pastora, después de ya unos años atrás haber sido de apoyo en el liderazgo del Ministerio de Jóvenes, Dios le hizo el llamado Pastoral, confirmado por la Iglesia. Su esposa es su ayuda idónea en el llamado que Dios le ha encomendado. En la actualidad Dios nos da el privilegio de servirle en la obra en distintos ministerios dentro de nuestra iglesia.  El pastor Victor Montoya recibió al Señor Jesucristo en octubre del 2014 y fue bautizado en el año 2015, es Técnico superior en Informática y actualmente trabaja como programador, estudio dos años de canto en la academia Cantar es fácil, tiene conocimiento en tocar varios instrumentos musicales y lo coloca el servicio del Señor.",
         id_gallery: ""
     },
     {
@@ -71,6 +71,7 @@ export const ministerio = [
         image: "https://i.imgur.com/DvmN8Hx.jpg",
         description: "El ministerio de Amor tiene como finalidad llevar una labor de índole social dónde se predique el amor de Dios no solo con palabras sino con muestra prácticas de amor. Dónde se puedan atender las necesidades no solo de la iglesia local sino en en diversas comunidades. Le llamamos amor en acción.",
         lider: "Pastor Virgilio Reyes y esposa Marielys de Reyes",
+        bio_lider: "",
         foto_lider: vm,
         id_gallery: ""
     },

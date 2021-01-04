@@ -12,10 +12,17 @@ function Navbar() {
   const [button, setButton] = useState(true);
 
   let scroll = (id) => () =>{
-    window.scroll({
-      top: (document.getElementById(id).offsetTop) -70,
-      behavior: 'smooth'
-    })    
+    if(document.getElementById(id) !== null) {
+      window.scroll({
+        top: (document.getElementById(id).offsetTop) -70,
+        behavior: 'smooth'
+      })
+    }else{
+/*       let dominio = document.domain
+      let protocolo = window.location.protocol */
+
+      window.location.href =`/${id}`
+    }
     setClick(false);
   }
   
@@ -80,19 +87,6 @@ function Navbar() {
                 <div className="nav-links" onClick={scroll("contacto")}>
                   Contactos
                 </div>
-              </li>
-              <li className="nav-btn">
-                {button ? (
-                  <Link to="/signup" className="btn-link" onClick={closeButton}>
-                    <Button buttonStyle="btn--outline">SIGN UP</Button>
-                  </Link>
-                ) : (
-                  <Link to="/signup" className="btn-link" onClick={closeButton}>
-                    <Button buttonStyle="btn--outline" buttonSize="btn--mobile">
-                      SIGN UP
-                    </Button>
-                  </Link>
-                )}
               </li>
             </ul>
           </div>
