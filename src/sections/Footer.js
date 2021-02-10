@@ -52,7 +52,6 @@ function Footer() {
             <Link to='/'>Canal</Link>
             <Link to='/'>Última predica</Link>
             <Link to='/'>Serie corazón apasionado por cristo</Link>
-            <Link to='/'>Serie un paso a la vez</Link>
           </div>
           <div className='footer-link-items'>
             <h2>Social Media</h2>

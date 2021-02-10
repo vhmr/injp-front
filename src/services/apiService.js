@@ -1,18 +1,10 @@
-// DATOS DE LAS PAGES 
+import React from 'react'
 
 
+const Post = () => {
 
+}
 
-// DATOS DEL LOS MINISTERIOS
-
-
-
-
-
-// DATOS DE CONSULTA PARA EL HOME
-
-
-
-
-
-// ENVÍO DE LA INFO AL BACK
+const Get = () => {
+    
+}

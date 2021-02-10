@@ -1,87 +1,91 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
+import Avatar from '@material-ui/core/Avatar';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import Typography from "@material-ui/core/Typography";
+import Button from '@material-ui/core/Button';
+
 import { makeStyles } from "@material-ui/core/styles";
 import { devocional } from "../shared/devocional";
-import { autor } from "../shared/autor";
-import devo from "../images/devocionales.jpg";
 import "../devo.css";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width: "100%",
-    paddingBottom: 10,
+    background: "#eef0f1",
+    padding: 20
   },
-  title: {
-    paddingTop: 80,
-    paddingBottom: 40,
+  media: {
+    height: 350,
   },
-  title_postal: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    fontWeight: 0,
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#00000080',
-    padding: 30
+  media_all: {
+    height: 140
   },
-  subtitle: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 60,
+  userName: {
+    marginLeft: 8,
+    marginTop: 10,
+    border: 0,
+    fontWeight: "bold"
   },
-  parrafo: {
-    paddingLeft: 40,
-    paddingRight: 40,
-    paddingBottom: 40,
-    paddingTop: 60,
-    fontSize: 20,
-    textAlign: 'justify'
+  perfilName: {
+    marginTop: -15,
+    marginLeft: 40,
+    fontSize: 18,
+    fontWeight: "bold"
   },
-  img: {
-    width: 400,
-    height: 400,
-    boxShadow: "0, 5, 10, 0, #331ba8",
+  root_card_blog: {
+    flexGrow: 1,
+    background: "rgba(0,0,0,0)",
+    padding: 5
   },
-  img_postal: {
-    width: "100%",
-    height: "100vh",
+  card_blogs: {
+    border: 0,
+    background: "rgba(0,0,0,0)",
+    boxShadow: "0px 0px",
   },
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: '100%',
-    verticalAlign: 'middle',
-    border: 'solid 2px rgba(87, 87, 87, 0.5)'
-  }, 
-  div: {
-    paddingTop: 40,
-    paddingBottom: 100
-  }, 
-  left: {
-    textAlign: 'end',
-    paddingRight: 150
+  root_perfil: {
+    flexGrow: 1,
+    background: "rgba(0,0,0,0)",
+    padding: 5
   },
-  strong: {
-    fontSize: 18
+  mt5: {
+    marginTop: 5,
   },
-  span: {
-    fontSize: 16
+  mt10: {
+    marginTop: 10
+  },
+  line: {
+    borderBottom: "1px dotted #cccccc",
+    paddingTop: 20
+  },
+  userCard: {
+    background: "#081034",
+    padding: 15
   }
 }));
 
+let n1 = 1419;
+let n2 = 827;
+let url = window.location.href;
+let pique = url.split("/");
+let id = pique[4];
+
+let content = devocional.find( m => m.id === id);
+
 const Devocional = () => {
+  const [style1, setStyle1] = useState({
+    position: "fixed",
+    right: 0,
+    top: "15vh"
+  });
+  const [control, setControl] = useState(false)
+
   const classes = useStyles();
-
-  let url = window.location.href;
-  let pique = url.split("/");
-  let id = pique[4];
-
-  let content = devocional.find( m => m.id === id);
 
   useEffect(() => {
     window.scroll({
@@ -90,122 +94,100 @@ const Devocional = () => {
     })
   }, []);
 
-  return (
-    <>
-      <Box className={classes.root}>
-        <Grid
-          direction="row"
-          justify="center"
-          alignItems="center"
-          md={12}
-          xs={12}
-          align="center"
-        >
-          <img
-            className={classes.img_postal}
-            src={devo}
-            alt="iglesia"
-            style={{filter: 'grayscale(100%)'}}
+  window.onscroll = () => {
+    let y = window.scrollY;
+    let scroll = document.getElementById("divScroll").offsetTop
+
+    if (y >= (scroll - 580)) {
+      if (control !== true) setStyle1({
+        position: "absolute",
+        right: 0,
+        top: y + 90
+      })
+      setControl(true)
+    }else{
+      setStyle1({
+        position: "fixed",
+        right: 0,
+        top: "15vh"
+      })
+      setControl(false)
+    }
+  };
+
+  let allDevs = () => {
+
+    return (
+      devocional.map(option => (
+        <Card className={[classes.card_blogs, classes.mt5]} key = {option.id}>
+          <CardHeader avatar = {
+            <Avatar alt = "img_perfil" src = {option.userProfile}/> } title = {<strong>{option.title}</strong>} subheader = "September 14, 2016"
           />
-        </Grid>
-        <Grid
-          direction="row"
-          justify="center"
-          alignItems="center"
-          className={classes.title_postal}
-          md={12}
-          xs={12}
-          align="center"
-        >
-          <Typography variant="h2" component="h2">
-            {content.title}
-          </Typography>
-          { content.Serie ? <Typography variant="h4" component="h4">Serie: {content.Serie}</Typography> : '' }
-        </Grid>
-        <Grid
-          direction="row"
-          justify="center"
-          alignItems="center"
-          md={12}
-          xs={12}
-          align="center"
-        >
-          <p className={classes.parrafo}>
+          {/* <CardMedia className = {classes.media_all} image = {option.image} alt = "imagen_fondo"/> */}
+          <CardContent>
+            <Typography variant = "body2" color = "textSecondary" component = "p">
+              {option.extracto}
+            </Typography>
+            <div className = {classes.line}></div>
+          </CardContent>
+        </Card>
+      ))
+    )
+  }
 
-              📖 Perdona el mal que hacemos, así como nosotros perdonamos a los que nos hacen mal. (Mateo 6:12)<br/>
+  return (
+    <div className = {classes.root}>
+      <Grid container spacing={3}>
+        <Grid  item md = {1} spacing = {2}>
 
-              ❇️ No cabe duda que este versículo nos enseña que así como nosotros fallamos, muchos nos han fallado también; un familiar o un amigo.<br/>
-              ❇️ En este mundo estamos propensos a pasar por decepciones, incluso de personas a quienes queremos mucho; que nos defraudan, que nos traicionan ya que solo están pendiente de sus intereses personales.<br/>
-              ❇️ Creo firmemente que así como nos han decepcionado, fallado y defraudado, pues amado lector nosotros mismos hemos cometido ese error con esas personas que confiaron tanto en nosotros.<br/> 
-              ¿No le parece?
-              Mañana continuaremos con este tema y deseo que juntos podamos aprender y que al final de esta serie podamos decir sinceramente:<br/>
-              ALGO DEBE CAMBIAR EN MI.<br/>
-              Feliz y bendecido Lunes 🙏
-              (Pastor Virgilio Reyes)
-          </p>
         </Grid>
-        <Grid
-          direction="row"
-          justify="center"
-          alignItems="center"
-          md={12}
-          xs={12}
-          align="center"
-        >
-          <section className={classes.left}>
-            <img className={classes.avatar} src={content.userProfile} alt={content.user} />
-            <span className={classes.span}>
-              Posted by <strong className={classes.strong}>{content.user}</strong>
-            </span>
-          </section>
+        <Grid  item md = {8} spacing = {2}>
+          <Card>
+            <CardMedia component = "img" alt = "imagen_fondo" image = {content.image} className={classes.media}/>
+            <CardContent>
+              <Typography gutterBottom variant = "h3" component = "h2">
+                {content.title}
+              </Typography>
+              <AvatarGroup maxc = {2}>
+                <Avatar alt = "img_perfil" src = {content.userProfile}/>
+                <Typography variant = "body2" className = {classes.userName} color = "textSecondary" component = "p">
+                  {content.user}
+                </Typography>
+              </AvatarGroup>
+              <Typography variant = "body2" color = "textSecondary" component = "p">
+                <div dangerouslySetInnerHTML = {{ __html: content.description }} style = {{lineHeight: 2}}/>
+              </Typography>
+            </CardContent>
+          </Card>
+          <div id = "divScroll"/>
+          <div style = {{minHeight: 600}}></div>
         </Grid>
-        <Grid
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          md={12}
-          xs={12}
-          align="center"
-        >
-          <Typography className={classes.title} variant="h5" component="h5">
-            Devocionales por autor:
-          </Typography>
+        <Grid item md = {3} spacing = {2} style = {style1}>
+          <Card style = {{background: "rgba(0,0,0,0)"}}>
+            <CardHeader className = {classes.userCard} avatar = {
+              <Avatar style = {{position: "absolute"}} alt = "img_perfil" src = {content.userProfile}/> } 
+            />
+            <CardContent>
+              <Typography gutterBottom variant = "body2" component = "p" className = {classes.perfilName}>
+                {content.user}
+              </Typography>
+            </CardContent>
+            <CardActions align = "right">
+              <Button variant = "contained" color = "secondary">
+                Ver Perfil
+              </Button>
+            </CardActions>
+          </Card>
+          <Card className = {[classes.root_card_blog, classes.mt10]}>
+            <Typography gutterBottom variant = "h4" component = "h2" align = "center">
+              Últimos Post
+            </Typography>
+            {allDevs()}
+          </Card>
         </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          xs={12}
-          className={classes.div}
-        >
-        {autor.map((item, index) => (
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          spacing={2}
-          xs={12}
-          md={4}
-          key={index}
-        >
-          <Link to={`/devocionales/${item.id}`} >          
-            <section>
-              <img src={item.userProfile} alt={item.user} />
-              <span>
-                Posted by <strong>{item.user}</strong>
-              </span>
-            </section>          
-          </Link>
-        </Grid>
-        ))}
       </Grid>
-      </Box>
-    </>
-  );
+    </div>
+  )
 };
 
 export default Devocional;

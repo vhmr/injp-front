@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Player } from "video-react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import "../../node_modules/video-react/dist/video-react.css";
 import { Button } from "../components/Button";
+import ReactPlayer from 'react-player';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,12 +40,14 @@ const Predicacion = (props) => {
           Última predicación
         </Typography>
       </Grid>
-      <Player
-        className={classes.box}
-        playsInline
-        poster="/assets/poster.png"
-        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      />
+      <ReactPlayer
+          url='https://www.youtube.com/watch?v=Ff19ucfbwyw'
+          className='react-player'
+          playing={true}
+          width='100%'
+          height='600px'
+          controls={true}
+        />
       <div className={classes.paddingButton}>
         <Link to={'//youtube.com/channel/UCrbqmYxApdICQJXjPY6EFsw'} target='_blank'>          
           <Button buttonSize="btn--wide" buttonStyle="btn--outline-dark">

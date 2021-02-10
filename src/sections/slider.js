@@ -21,12 +21,12 @@ class Home extends Component {
         )}
         autoplay={true}
         width="100%"
-        height="1000px"
+        height="800px"
         style={{ margin: "0px", overflow: "hidden"}}
         autoplayInterval={5000}
       >
         {content.map((item, index) => (
-          <img src={item.image}  />
+          <img src={item.image} style={{ width: "100%", height: "auto"}}/>
         ))}
       </Carousel>
     );
