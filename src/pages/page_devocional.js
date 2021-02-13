@@ -13,6 +13,8 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from "@material-ui/core/styles";
 import { devocional } from "../shared/devocional";
 import "../devo.css";
+import { Get, UrlServer } from "../services/apiService";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -75,15 +77,14 @@ let url = window.location.href;
 let pique = url.split("/");
 let id = pique[4];
 
-let content = devocional.find( m => m.id === id);
-
-const Devocional = () => {
+const Devocional = (props) => {
   const [style1, setStyle1] = useState({
     position: "fixed",
     right: 0,
     top: "15vh"
   });
   const [control, setControl] = useState(false)
+  const [content, setContent] = useState([])
 
   const classes = useStyles();
 
@@ -92,6 +93,13 @@ const Devocional = () => {
       top: 0,
       behavior: 'smooth'
     })
+
+    Get(`${UrlServer}post/${id}`, (res) => {
+      let data = JSON.parse(res);
+      console.log(data)
+      setContent(data.post)
+    })
+
   }, []);
 
   window.onscroll = () => {
@@ -118,7 +126,7 @@ const Devocional = () => {
   let allDevs = () => {
 
     return (
-      devocional.map(option => (
+      content.map(option => (
         <Card className={[classes.card_blogs, classes.mt5]} key = {option.id}>
           <CardHeader avatar = {
             <Avatar alt = "img_perfil" src = {option.userProfile}/> } title = {<strong>{option.title}</strong>} subheader = "September 14, 2016"
@@ -126,7 +134,7 @@ const Devocional = () => {
           {/* <CardMedia className = {classes.media_all} image = {option.image} alt = "imagen_fondo"/> */}
           <CardContent>
             <Typography variant = "body2" color = "textSecondary" component = "p">
-              {option.extracto}
+              {option.extract}
             </Typography>
             <div className = {classes.line}></div>
           </CardContent>

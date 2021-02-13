@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { devocional } from "../shared/devocional";
 import { Button } from "../components/Button";
 import "../devo.css";
+import { Get, UrlServer } from "../services/apiService";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,8 +32,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Devocionales = () => {
+const Devocionales = (props) => {
   const classes = useStyles();
+  const [devocionales, setDevocionales] = useState([])
+
+  useEffect(() => {
+    Get(`${UrlServer}devocionales`, (res) => {
+      let data = JSON.parse(res);
+      console.log(data)
+      setDevocionales(data.posts)
+    })
+  }, [props])
+
   return (
     <Box className={classes.root} id="devocionales">
       <Grid
@@ -49,14 +60,14 @@ const Devocionales = () => {
       <div className="slider">
         <div className="mask">
           <ul>
-            {devocional.map((item, index) => (
+            {devocionales.map((item, index) => (
               <li className={`anim${index + 1}`} key={index}>
                 <div className="quote">{item.title}</div>
-                <div className="source">- {item.extracto}</div>
+                <div className="source">- {item.extract}</div>
                 <section>
-                  <img src={item.userProfile} alt={item.user} />
+                  <img src="#" alt={item.user.name} />
                   <span>
-                    Posted by <strong>{item.user}</strong>
+                    Posted by <strong>{item.user.name}</strong>
                   </span>
                 </section>
                 <div className={classes.paddingButton}>

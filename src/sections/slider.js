@@ -1,16 +1,22 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 import Carousel from 'nuka-carousel';
 import { content } from "../shared/content";
+import { Get, UrlServer } from "../services/apiService";
 
-class Home extends Component {
+const Home = () => {
 
-  state = {
-    slideIndex: 0
-  };
- 
-  render() {
+    const [content, setContent] = useState([])
+
+    useEffect(() => {
+      Get(`${UrlServer}slider`, (res) => {
+        let data = JSON.parse(res);
+        console.log(data)
+        setContent(data.images)
+      })
+    }, [])
+
     return(
       <Carousel
         renderCenterLeftControls={({ previousSlide }) => (
@@ -26,11 +32,11 @@ class Home extends Component {
         autoplayInterval={5000}
       >
         {content.map((item, index) => (
-          <img src={item.image} style={{ width: "100%", height: "auto"}}/>
+          <img src={item.url} style={{ width: "100%", height: "auto"}}/>
         ))}
       </Carousel>
     );
-  }
+
 };
 
 export default Home;

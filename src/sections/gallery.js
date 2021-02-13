@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -7,6 +7,7 @@ import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "../shared/photos";
 import { Button } from "../components/Button";
+import { Get, UrlServer } from "../services/apiService";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,15 @@ const useStyles = makeStyles((theme) => ({
 const Galleria = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const [photos, setPhotos] = useState([])
+
+  useEffect(() => {
+    Get(`${UrlServer}actividades`, (res) => {
+      let data = JSON.parse(res);
+      console.log(data)
+      setPhotos(data.images)
+    })
+  }, [])
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -53,7 +63,7 @@ const Galleria = () => {
               currentIndex={currentImage}
               views={photos.map((x) => ({
                 ...x,
-                srcset: x.srcSet,
+                srcset: x.url,
                 caption: x.title,
               }))}
             />

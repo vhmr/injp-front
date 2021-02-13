@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import CardHeader from "../components/card/CardHeader";
 import CardBody from "../components/card/CardBody";
 import { Button } from "../components/Button";
 import { ministerio } from "../shared/ministerios";
+import { Get, UrlServer } from "../services/apiService";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Card = () => {
   const classes = useStyles();
+  const [ministerios, setMinisterios] = useState([])
+
+  useEffect(() => {
+    Get(`${UrlServer}ministerios`, (res) => {
+      let data = JSON.parse(res);
+      console.log(data)
+      setMinisterios(data.ministeries)
+    })
+  }, [])
+
   return (
     <Box className={classes.root} id="ministerio">
       <Grid
@@ -57,7 +68,7 @@ const Card = () => {
         spacing={2}
         xs={12}
       >
-        {ministerio.map((item, index) => (
+        {ministerios.map((item, index) => (
         <Grid
           container
           direction="row"
@@ -70,11 +81,11 @@ const Card = () => {
         >
           <article className="card">
             <CardHeader
-              image={item.image}
+              image={item.image_ministery}
             />
             <CardBody
               title={item.title}
-              text={item.extracto}
+              text={item.description}
             />
             <div className={classes.paddingButton}>
               <Link to={`/ministerio/${item.id}`}>          
