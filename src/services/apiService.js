@@ -18,10 +18,6 @@ export const Get = (url, resp) => {
             resp (data);
         }
     },error => {
-/*         IntentosPost++;
-        (IntentosPost > 5) ? IntentosPost = 0 : Get(url, (respuesta) => {
-            resp(respuesta)
-        }) */
         console.error('Ocurrió un error al cargar. Reintentando. ', error);
     })
     

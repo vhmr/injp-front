@@ -47,6 +47,10 @@ const Card = () => {
     })
   }, [])
 
+  const truncated = (string, n) => {
+      return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+  }
+
   return (
     <Box className={classes.root} id="ministerio">
       <Grid
@@ -85,7 +89,7 @@ const Card = () => {
             />
             <CardBody
               title={item.title}
-              text={item.description}
+              text={<div dangerouslySetInnerHTML={{ __html: truncated(item.description, 150)}}></div>}
             />
             <div className={classes.paddingButton}>
               <Link to={`/ministerio/${item.id}`}>          

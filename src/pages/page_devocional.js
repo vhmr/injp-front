@@ -85,6 +85,8 @@ const Devocional = (props) => {
   });
   const [control, setControl] = useState(false)
   const [content, setContent] = useState([])
+  const [user, setUser] = useState([])
+  const [tags, setTags] = useState([])
 
   const classes = useStyles();
 
@@ -96,8 +98,10 @@ const Devocional = (props) => {
 
     Get(`${UrlServer}post/${id}`, (res) => {
       let data = JSON.parse(res);
-      console.log(data)
-      setContent(data.post)
+      console.log(data.tags)
+      setContent(data.post[0])
+      setUser(data.post[0].user)
+      setTags(data.tags)
     })
 
   }, []);
@@ -123,7 +127,7 @@ const Devocional = (props) => {
     }
   };
 
-  let allDevs = () => {
+  /*let allDevs = () => {
 
     return (
       content.map(option => (
@@ -131,7 +135,6 @@ const Devocional = (props) => {
           <CardHeader avatar = {
             <Avatar alt = "img_perfil" src = {option.userProfile}/> } title = {<strong>{option.title}</strong>} subheader = "September 14, 2016"
           />
-          {/* <CardMedia className = {classes.media_all} image = {option.image} alt = "imagen_fondo"/> */}
           <CardContent>
             <Typography variant = "body2" color = "textSecondary" component = "p">
               {option.extract}
@@ -141,7 +144,7 @@ const Devocional = (props) => {
         </Card>
       ))
     )
-  }
+  }*/
 
   return (
     <div className = {classes.root}>
@@ -157,13 +160,14 @@ const Devocional = (props) => {
                 {content.title}
               </Typography>
               <AvatarGroup maxc = {2}>
-                <Avatar alt = "img_perfil" src = {content.userProfile}/>
+                <Avatar alt = "img_perfil" src = {user.name}/>
                 <Typography variant = "body2" className = {classes.userName} color = "textSecondary" component = "p">
-                  {content.user}
+                  {user.name}
+                  {tags.map(tag => ' - '+ tag.name + ' ')}
                 </Typography>
               </AvatarGroup>
               <Typography variant = "body2" color = "textSecondary" component = "p">
-                <div dangerouslySetInnerHTML = {{ __html: content.description }} style = {{lineHeight: 2}}/>
+                <div dangerouslySetInnerHTML = {{ __html: content.contenido }} style = {{lineHeight: 2}}/>
               </Typography>
             </CardContent>
           </Card>
@@ -173,11 +177,11 @@ const Devocional = (props) => {
         <Grid item md = {3} spacing = {2} style = {style1}>
           <Card style = {{background: "rgba(0,0,0,0)"}}>
             <CardHeader className = {classes.userCard} avatar = {
-              <Avatar style = {{position: "absolute"}} alt = "img_perfil" src = {content.userProfile}/> } 
+              <Avatar style = {{position: "absolute"}} alt = "img_perfil" src = {user.name}/> } 
             />
             <CardContent>
               <Typography gutterBottom variant = "body2" component = "p" className = {classes.perfilName}>
-                {content.user}
+                {user.name}
               </Typography>
             </CardContent>
             <CardActions align = "right">
@@ -190,7 +194,6 @@ const Devocional = (props) => {
             <Typography gutterBottom variant = "h4" component = "h2" align = "center">
               Últimos Post
             </Typography>
-            {allDevs()}
           </Card>
         </Grid>
       </Grid>

@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { ministerio } from "../shared/ministerios";
 import Actv from "../sections/gallery";
+import { Get, UrlServer } from "../services/apiService";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,17 +58,25 @@ const useStyles = makeStyles((theme) => ({
 
 const Card = () => {
   const classes = useStyles();
+  const [ministerio, setMinisterio] = useState([])
+
   
   let url = window.location.href;
   let pique = url.split("/");
   let id = pique[4];
 
-  let content = ministerio.find( m => m.id === id)
+  //let ministerio = ministerio.find( m => m.id === id)
 
   useEffect(() => {
     window.scroll({
       top: 0,
       behavior: 'smooth'
+    })
+
+    Get(`${UrlServer}ministerio/${id}`, (res) => {
+      let data = JSON.parse(res);
+      console.log(data.ministery)
+      setMinisterio(data.ministery[0])
     })
   }, []);
 
@@ -83,7 +93,7 @@ const Card = () => {
       >
         <img
           className={classes.img_postal}
-          src={content.imagen_postal}
+          src={ministerio.imagen_ministery}
           alt="iglesia"
           style={{filter: 'grayscale(100%)'}}
         />
@@ -100,7 +110,7 @@ const Card = () => {
           align="center"
         >
           <Typography variant="h2" component="h2">
-            {content.title}
+            {ministerio.title}
           </Typography>
         </Grid>
       <Grid
@@ -119,7 +129,7 @@ const Card = () => {
             xs={12}
           >
             <div className={classes.parrafo}>
-              {content.description}
+              <p dangerouslySetInnerHTML={{ __html: ministerio.description }}></p>
             </div>
           </Grid>
           <Grid
@@ -132,7 +142,7 @@ const Card = () => {
           >
             <img
               className={classes.img}
-              src={content.image}
+              src={ministerio.image_ministery}
               alt="iglesia"
             />
           </Grid> 
@@ -154,7 +164,7 @@ const Card = () => {
           >
             <img
               className={classes.imgp}
-              src={content.foto_lider}
+              src={ministerio.image_lider}
               alt="iglesia"
             />
           </Grid>          
@@ -166,7 +176,8 @@ const Card = () => {
             xs={12}
           >
             <div className={classes.parrafo}>
-              {content.bio_lider}
+              <h4>{ministerio.name_lider}</h4>
+              <p dangerouslySetInnerHTML={{ __html: ministerio.bio_lider }}></p>
             </div>
           </Grid>
         </Grid>          
