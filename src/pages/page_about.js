@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import pastores1 from "../images/virgilimary.jpeg";
+import pastores1 from "../images/reyes.jpeg";
 import partores2 from "../images/victoralba.jpeg";
 import banner from "../images/banner.jpg";
 import { team } from "../shared/team";
@@ -23,16 +23,16 @@ const useStyles = makeStyles((theme) => ({
   },
   parrafo: {
     padding: 60,
-    fontSize: 20,
-    justifyContent: "justify",
-    textAlign: "center",
-    
+    fontSize: 18,
+    textAlign: "justify",
+    lineHeight: 1.7
   },
   parrafo2: {
     padding: 20,
-    fontSize: 20,
+    fontSize: 18,
     justifyContent: "justify",
     textAlign: "center",
+    lineHeight: 1.7
   },
   img: {
     width: 500,
@@ -163,7 +163,7 @@ const About = () => {
           </Typography>
           </Grid>
             <div className={classes.parrafo2}>
-              Ser una iglesia fiel al Señor Jesucristo y su palabra, compuesta por failias consagradas a serviri al Señor y expandir el evangelio en la comunidad.
+              Ser una iglesia fiel al Señor Jesucristo y su palabra, compuesta por familias consagradas a serviri al Señor y expandir el evangelio en la comunidad.
             </div>
           </Grid>
         </Grid>
@@ -248,6 +248,7 @@ const About = () => {
               justify="center"
               alignItems="center"
               md={4}
+              sm={12}
               xs={12}
               align="center"
             >

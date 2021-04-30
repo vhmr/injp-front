@@ -1,8 +1,9 @@
 import diacono3 from "../images/miguelerly.jpeg";
-import diacono1 from "../images/miguelsilvia.jpeg";
+import diacono1 from "../images/astudillos.jpeg";
 import diacono2 from "../images/henryjaqui.jpeg";
 import liderD from "../images/ely.jpeg";
 import liderA from "../images/anny.jpeg";
+import secer from "../images/marvel.jpeg";
 
 export const team = [
     {
@@ -36,7 +37,7 @@ export const team = [
       height: 4,
     },
     {
-      src: "https://source.unsplash.com/PpOHJezOalU/800x599",
+      src: secer,
       title: "Secretaria",
       width: 4,
       height: 3,
