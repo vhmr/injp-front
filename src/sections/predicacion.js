@@ -43,7 +43,7 @@ const Predicacion = (props) => {
       <ReactPlayer
           url='https://www.youtube.com/watch?v=Ff19ucfbwyw'
           className='react-player'
-          playing={true}
+          playing={false}
           width='100%'
           height='600px'
           controls={true}

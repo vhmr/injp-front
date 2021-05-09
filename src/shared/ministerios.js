@@ -9,7 +9,7 @@ import mdj2 from "../images/mdj2.jpg";
 import mdt1 from "../images/mdt1.jpg";
 import mp from "../images/predicacion2.jpg";
 
-export const ministerio = [
+export const ministerios = [
     {
         id: "1",
         title: "Ministerio Pastoral",

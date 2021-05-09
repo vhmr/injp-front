@@ -3,7 +3,7 @@ import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 import Carousel from 'nuka-carousel';
 import { content } from "../shared/content";
-import { Get, UrlServer } from "../services/apiService";
+import { Get, UrlServer, UrlImages } from "../services/apiService";
 
 const Home = () => {
 
@@ -32,7 +32,7 @@ const Home = () => {
         autoplayInterval={5000}
       >
         {content.map((item, index) => (
-          <img src={item.url} style={{ width: "100%", height: "auto"}}/>
+          <img src={`${UrlImages}/${item.url}`} style={{ width: "100%", height: "auto"}}/>
         ))}
       </Carousel>
     );

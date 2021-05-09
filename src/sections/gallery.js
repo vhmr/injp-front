@@ -7,7 +7,7 @@ import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "../shared/photos";
 import { Button } from "../components/Button";
-import { Get, UrlServer } from "../services/apiService";
+import { Get, UrlServer, UrlImages } from "../services/apiService";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,15 +27,15 @@ const useStyles = makeStyles((theme) => ({
 const Galleria = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
-  const [photos, setPhotos] = useState([])
+  //const [photos, setPhotos] = useState([])
 
-  useEffect(() => {
+/*   useEffect(() => {
     Get(`${UrlServer}actividades`, (res) => {
       let data = JSON.parse(res);
       console.log(data)
       setPhotos(data.images)
     })
-  }, [])
+  }, []) */
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -63,8 +63,8 @@ const Galleria = () => {
               currentIndex={currentImage}
               views={photos.map((x) => ({
                 ...x,
-                srcset: x.url,
-                caption: x.title,
+                srcset: `${UrlImages}/${x.url}`,
+                caption: x.id,
               }))}
             />
           </Modal>

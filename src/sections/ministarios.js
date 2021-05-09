@@ -8,8 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import CardHeader from "../components/card/CardHeader";
 import CardBody from "../components/card/CardBody";
 import { Button } from "../components/Button";
-import { ministerio } from "../shared/ministerios";
-import { Get, UrlServer } from "../services/apiService";
+import { ministerios } from "../shared/ministerios";
+import { Get, UrlServer, UrlImages } from "../services/apiService";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,15 +37,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Card = () => {
   const classes = useStyles();
-  const [ministerios, setMinisterios] = useState([])
+  //const [ministerios, setMinisterios] = useState([])
 
-  useEffect(() => {
+/*   useEffect(() => {
     Get(`${UrlServer}ministerios`, (res) => {
       let data = JSON.parse(res);
       console.log(data)
       setMinisterios(data.ministeries)
     })
-  }, [])
+  }, []) */
 
   const truncated = (string, n) => {
       return string?.length > n ? string.substr(0, n - 1) + '...' : string;
@@ -85,7 +85,7 @@ const Card = () => {
         >
           <article className="card">
             <CardHeader
-              image={item.image_ministery}
+              image={item.image}
             />
             <CardBody
               title={item.title}

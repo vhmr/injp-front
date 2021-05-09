@@ -3,9 +3,8 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { ministerio } from "../shared/ministerios";
+import { ministerios } from "../shared/ministerios";
 import Actv from "../sections/gallery";
-import { Get, UrlServer } from "../services/apiService";
 
 
 
@@ -34,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 40,
     fontSize: 18,
     justifyContent: "justify",
+    textAlign: "justify",
+    lineHeight: 1.7
   },
   paddingButton: {
     textAlign: 'center',
@@ -57,17 +58,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Card = () => {
-  const classes = useStyles();
-  const [ministerio, setMinisterio] = useState([])
-
-  
+  const classes = useStyles();  
   let url = window.location.href;
   let pique = url.split("/");
   let id = pique[4];
 
-  //let ministerio = ministerio.find( m => m.id === id)
+  let ministerio = ministerios.find( m => m.id === id)
 
-  useEffect(() => {
+/*   useEffect(() => {
     window.scroll({
       top: 0,
       behavior: 'smooth'
@@ -75,10 +73,10 @@ const Card = () => {
 
     Get(`${UrlServer}ministerio/${id}`, (res) => {
       let data = JSON.parse(res);
-      console.log(data.ministery)
+      console.log(data)
       setMinisterio(data.ministery[0])
     })
-  }, []);
+  }, []); */
 
   return (
     <>
@@ -93,7 +91,7 @@ const Card = () => {
       >
         <img
           className={classes.img_postal}
-          src={ministerio.imagen_ministery}
+          src={ministerio.imagen_postal}
           alt="iglesia"
           style={{filter: 'grayscale(100%)'}}
         />
@@ -142,7 +140,7 @@ const Card = () => {
           >
             <img
               className={classes.img}
-              src={ministerio.image_ministery}
+              src={ministerio.imagen_postal}
               alt="iglesia"
             />
           </Grid> 
@@ -164,7 +162,7 @@ const Card = () => {
           >
             <img
               className={classes.imgp}
-              src={ministerio.image_lider}
+              src={ministerio.foto_lider}
               alt="iglesia"
             />
           </Grid>          

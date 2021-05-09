@@ -34,15 +34,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Devocionales = (props) => {
   const classes = useStyles();
-  const [devocionales, setDevocionales] = useState([])
+  //const [devocionales, setDevocionales] = useState([])
 
-  useEffect(() => {
+/*   useEffect(() => {
     Get(`${UrlServer}devocionales`, (res) => {
       let data = JSON.parse(res);
       console.log(data)
       setDevocionales(data.posts)
     })
-  }, [props])
+  }, [props]) */
 
   return (
     <Box className={classes.root} id="devocionales">
@@ -60,12 +60,12 @@ const Devocionales = (props) => {
       <div className="slider">
         <div className="mask">
           <ul>
-            {devocionales.map((item, index) => (
+            {devocional.map((item, index) => (
               <li className={`anim${index + 1}`} key={index}>
                 <div className="quote">{item.title}</div>
                 <div className="source">- {item.extract}</div>
                 <section>
-                  <img src="#" alt={item.user.name} />
+                  <img src={item.userProfile} alt={item.user} />
                   <span>
                     Posted by <strong>{item.user.name}</strong>
                   </span>

@@ -1,5 +1,6 @@
 import React from 'react'
-export const UrlServer = "http://127.0.0.1:8000/api/"
+export const UrlServer = "http://localhost/injp-back/public/api/"
+export const UrlImages= "http://localhost/injp-back/public/"
 
 export const Post = () => {
 

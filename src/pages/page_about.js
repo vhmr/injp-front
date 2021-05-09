@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
   },
   img_postal: {
     width: "100%",
-    height: "100vh",
   },
 }));
 
