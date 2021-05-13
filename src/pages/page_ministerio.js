@@ -65,19 +65,6 @@ const Card = () => {
 
   let ministerio = ministerios.find( m => m.id === id)
 
-/*   useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth'
-    })
-
-    Get(`${UrlServer}ministerio/${id}`, (res) => {
-      let data = JSON.parse(res);
-      console.log(data)
-      setMinisterio(data.ministery[0])
-    })
-  }, []); */
-
   return (
     <>
       <Box>

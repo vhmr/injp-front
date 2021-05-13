@@ -8,7 +8,6 @@ import partores2 from "../images/victoralba.jpeg";
 import banner from "../images/banner.jpg";
 import { team } from "../shared/team";
 
-//const iglesia = ["https://source.unsplash.com/Dm-qxdynoEc/800x799"];
 
 const useStyles = makeStyles((theme) => ({
   root: {

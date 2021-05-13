@@ -84,7 +84,7 @@ function Navbar() {
                 </div>
               </li>
               <li className="nav-item">
-                <div className="nav-links" onClick={scroll("contacto")}>
+                <div className="nav-links" onClick={scroll("contact")}>
                   Contactos
                 </div>
               </li>

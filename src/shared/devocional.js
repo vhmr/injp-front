@@ -18,8 +18,7 @@ export const devocional = [
   {
     id: "2",
     title: "Contraste",
-    extracto:
-    "",
+    extracto: "",
     description:
       `<div>As an undergraduate student in one of the universities in Indonesia, we are mostly obligated to participate in a community empowerment program, where we are supposed to help the locals by applying our knowledge. Usually, we have to physically be in the community area to take part in this program, but because of the covid pandemic, the program was held online.</div>
       <br/>
@@ -65,25 +64,21 @@ export const devocional = [
   {
     id: "4",
     title: "Más de ti menos de mi",
-    extracto:
-    "",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+    extracto:"",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
     button: "Buy now",
     image: "https://i.imgur.com/DvmN8Hx.jpg",
     user: "Pastor Victor Montoya",
-    userProfile: "https://i.imgur.com/4KeKvtH.png",
+    userProfile: victor,
   },
   {
     id: "5",
     title: "Más de ti menos de mi",
-    extracto:
-    "",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
+    extracto: "",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.",
     button: "Buy now",
     image: "https://i.imgur.com/DvmN8Hx.jpg",
     user: "Pastor Victor Montoya",
-    userProfile: "https://i.imgur.com/4KeKvtH.png",
+    userProfile: victor
   }
 ];

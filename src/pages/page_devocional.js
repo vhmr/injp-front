@@ -13,14 +13,19 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from "@material-ui/core/styles";
 import { devocional } from "../shared/devocional";
 import "../devo.css";
-import { Get, UrlServer } from "../services/apiService";
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     background: "#eef0f1",
-    padding: 20
+    padding: 20,
+  },
+  title: {
+    fontFamily: 'Libre Baskerville, serif'
+  },
+  content: {
+    lineHeight: 2, padding: '20px', textAlign: 'justify', fontFamily: 'Libre Baskerville, serif'
   },
   media: {
     height: 350,
@@ -32,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 8,
     marginTop: 10,
     border: 0,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontFamily: 'Libre Baskerville, serif'
   },
   perfilName: {
     marginTop: -15,
@@ -71,80 +77,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-let n1 = 1419;
-let n2 = 827;
 let url = window.location.href;
 let pique = url.split("/");
 let id = pique[4];
 
-const Devocional = (props) => {
-  const [style1, setStyle1] = useState({
-    position: "fixed",
-    right: 0,
-    top: "15vh"
-  });
-  const [control, setControl] = useState(false)
-  const [content, setContent] = useState([])
-  const [user, setUser] = useState([])
-  const [tags, setTags] = useState([])
+const Devocional = () => {
 
   const classes = useStyles();
+  const content = devocional.find( m => m.id === id)
 
-  useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth'
-    })
-
-    Get(`${UrlServer}post/${id}`, (res) => {
-      let data = JSON.parse(res);
-      console.log(data.tags)
-      setContent(data.post[0])
-      setUser(data.post[0].user)
-      setTags(data.tags)
-    })
-
-  }, []);
-
-  window.onscroll = () => {
-    let y = window.scrollY;
-    let scroll = document.getElementById("divScroll").offsetTop
-
-    if (y >= (scroll - 580)) {
-      if (control !== true) setStyle1({
-        position: "absolute",
-        right: 0,
-        top: y + 90
-      })
-      setControl(true)
-    }else{
-      setStyle1({
-        position: "fixed",
-        right: 0,
-        top: "15vh"
-      })
-      setControl(false)
-    }
-  };
-
-  /*let allDevs = () => {
-
-    return (
-      content.map(option => (
-        <Card className={[classes.card_blogs, classes.mt5]} key = {option.id}>
-          <CardHeader avatar = {
-            <Avatar alt = "img_perfil" src = {option.userProfile}/> } title = {<strong>{option.title}</strong>} subheader = "September 14, 2016"
-          />
-          <CardContent>
-            <Typography variant = "body2" color = "textSecondary" component = "p">
-              {option.extract}
-            </Typography>
-            <div className = {classes.line}></div>
-          </CardContent>
-        </Card>
-      ))
-    )
-  }*/
+  console.log(content)
 
   return (
     <div className = {classes.root}>
@@ -154,34 +96,32 @@ const Devocional = (props) => {
         </Grid>
         <Grid  item md = {8} spacing = {2}>
           <Card>
-            <CardMedia component = "img" alt = "imagen_fondo" image = {content.image} className={classes.media}/>
+            <CardMedia component = "img" alt = "imagen_fondo" image ={content.image} className={classes.media}/>
             <CardContent>
-              <Typography gutterBottom variant = "h3" component = "h2">
+              <Typography gutterBottom variant="h3" component="h2" className={classes.title}>
                 {content.title}
               </Typography>
-              <AvatarGroup maxc = {2}>
-                <Avatar alt = "img_perfil" src = {user.name}/>
+              <AvatarGroup maxc = {2} style={{ paddingBottom: '20px'}}>
+                <Avatar alt = "img_perfil" src = {content.userProfile}/>
                 <Typography variant = "body2" className = {classes.userName} color = "textSecondary" component = "p">
-                  {user.name}
-                  {tags.map(tag => ' - '+ tag.name + ' ')}
+                  {content.user}
                 </Typography>
               </AvatarGroup>
-              <Typography variant = "body2" color = "textSecondary" component = "p">
-                <div dangerouslySetInnerHTML = {{ __html: content.contenido }} style = {{lineHeight: 2}}/>
+              <Typography color = "textSecondary" component = "p">
+                <div dangerouslySetInnerHTML = {{ __html: content.description }} className={classes.content}/>
               </Typography>
             </CardContent>
           </Card>
           <div id = "divScroll"/>
-          <div style = {{minHeight: 600}}></div>
         </Grid>
-        <Grid item md = {3} spacing = {2} style = {style1}>
+        <Grid item md = {3} spacing = {2}>
           <Card style = {{background: "rgba(0,0,0,0)"}}>
             <CardHeader className = {classes.userCard} avatar = {
-              <Avatar style = {{position: "absolute"}} alt = "img_perfil" src = {user.name}/> } 
+              <Avatar style = {{position: "absolute"}} alt = "img_perfil" src = {content.userProfile}/> } 
             />
             <CardContent>
               <Typography gutterBottom variant = "body2" component = "p" className = {classes.perfilName}>
-                {user.name}
+                {content.user}
               </Typography>
             </CardContent>
             <CardActions align = "right">
@@ -191,7 +131,7 @@ const Devocional = (props) => {
             </CardActions>
           </Card>
           <Card className = {[classes.root_card_blog, classes.mt10]}>
-            <Typography gutterBottom variant = "h4" component = "h2" align = "center">
+            <Typography gutterBottom variant = "h4" component = "h2" align = "center" className={classes.title}>
               Últimos Post
             </Typography>
           </Card>
