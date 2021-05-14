@@ -63,11 +63,11 @@ const Devocionales = (props) => {
             {devocional.map((item, index) => (
               <li className={`anim${index + 1}`} key={index}>
                 <div className="quote">{item.title}</div>
-                <div className="source">- {item.extract}</div>
+                <div className="source">- {item.extracto}</div>
                 <section>
                   <img src={item.userProfile} alt={item.user} />
                   <span>
-                    Posted by <strong>{item.user.name}</strong>
+                    Posted by <strong>{item.user}</strong>
                   </span>
                 </section>
                 <div className={classes.paddingButton}>

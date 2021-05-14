@@ -1,24 +1,44 @@
 import React, { useState, useEffect } from "react";
-import Slider from "react-animated-slider";
-import "react-animated-slider/build/horizontal.css";
+import Slider from 'react-animated-slider';
+import 'react-animated-slider/build/horizontal.css';
 import Carousel from 'nuka-carousel';
 import { content } from "../shared/content";
-import { Get, UrlServer, UrlImages } from "../services/apiService";
+import '../slider.css'
 
 const Home = () => {
 
-    const [content, setContent] = useState([])
+    //const [content, setContent] = useState(content)
 
-    useEffect(() => {
+/*     useEffect(() => {
       Get(`${UrlServer}slider`, (res) => {
         let data = JSON.parse(res);
         console.log(data)
         setContent(data.images)
       })
-    }, [])
+    }, []) */
 
     return(
-      <Carousel
+      <Slider className="slider-wrapper" autoplay={10000}>
+			{content.map((item, index) => (
+				<div
+					key={index}
+					className="slider-content"
+					style={{ background: `url('${item.image}') no-repeat center center` }}
+				>
+					<div className="inner">
+						<h1>{item.title}</h1>
+						<p>{item.description}</p>
+					</div>
+					<section>
+						<img src={item.userProfile} alt={item.user} />
+						<span>
+							Posted by <strong>{item.user}</strong>
+						</span>
+					</section>
+				</div>
+			))}
+		</Slider>
+/*       <Carousel
         renderCenterLeftControls={({ previousSlide }) => (
           <button onClick={previousSlide}>Previous</button>
         )}
@@ -34,7 +54,7 @@ const Home = () => {
         {content.map((item, index) => (
           <img src={`${UrlImages}/${item.url}`} style={{ width: "100%", height: "auto"}}/>
         ))}
-      </Carousel>
+      </Carousel> */
     );
 
 };
