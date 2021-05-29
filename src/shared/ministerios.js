@@ -8,16 +8,17 @@ import mdj1 from "../images/mdj1.jpg";
 import mdj2 from "../images/mdj2.jpg";
 import mdt1 from "../images/mdt1.jpg";
 import mp from "../images/predicacion2.jpg";
+import amor from "../images/lideramor.jpeg";
 
 export const ministerios = [
     {
         id: "1",
         title: "Ministerio Pastoral",
-        extracto:"Encargados de llevar el alimento espíritual a la iglesia, servir al redil de nuestro Señor y cuidado de las familias de la congregación. ",
+        extracto:"Encargados de llevar el alimento espíritual a la iglesia, servir al redil de nuestro Señor y cuidado de las familias de la congregación. Predicar de manera clara y con autoridad la Palabra de Dios.",
         button: "Ver MÁS",
         image: "https://i.imgur.com/DvmN8Hx.jpg",
         imagen_postal: mp,
-        description: "",
+        description: "Los pastores tendrán bajo su responsabilidad el cuidado de la congregación. Llevar alimento fresco a través de la palabra de Dios. Protección contra la falsa enseñanza. Administración y gobierno de los asuntos de la iglesia. Estímulo y guía para los hermanos.",
         lider: "Partor Virgilio Reyes y su esposa Marielys Castro",
         foto_lider: vm,
         bio_lider: "Virgilio Reyes Gutiérrez junto a su esposa Marielys de Reyes, inicio el Pastorado en el año 2002. En la iglesia Nueva Jerusalén ubicada en Carapita Antimano. Luego de haber  desarrollado diversos ministerio en la organización OVICE, entre los que se encuentra ser parte directiva de UJEV, así como estar a cargo del comité de evangelismo en la Iglesia Nueva Jerusalem del Paraíso dónde inicio su caminar con Cristo. Su esposa es apoyo en la labor que Dios le ha encomendando, quien dese pequeña  a seguido los pasos de Jesús y ha servido en la obra en distintas áreas. En la actualidad Dios le permite ejercer el Pastorado en la iglesia Nueva Jerusalem ubicada en la pastora. De igual forma es Director Nacional de la Fundación Corazones de Esperanza, Presidente de la Región 4. Su labor es realizada con amor y con la finalidad de ganar almas para Cristo dónde toda la Gloria de Dios.",
@@ -44,9 +45,9 @@ export const ministerios = [
         button: "Ver MÁS",
         image: "https://i.imgur.com/DvmN8Hx.jpg",
         imagen_postal: "",
-        description: "",
+        description: "El Ministerio de damas Servidoras de Dios , tiene el propósito de alcanzar más mujeres para Dios y prepararlas espiritualmente con principios biblicos  y así ser instrumento de bendición dentro de su hogar, Iglesia  y sociedad. Nuestras reuniones son cada  quince días  donde tenemos la oportunidad de animarnos las unas a  las otras  recibir enseñanzas y estar en comunión como dice la palabra en Salmo 133:1. Cada uno de nuestros servicios especiales tienen alcance envangelistico, tiempo de oración, dinámicas y compartir. Los  temas a tratar son de interés para la mujer de hoy,dichos estudios  están dirigidos por grandes hijas  de Dios, con conocimientos profundas en la palabra.",
         lider: "Elizabeth Rico",
-        bio_lider:"", 
+        bio_lider:"Mi nombre es Ruth Elizabeth Rico,  profesora en Educación comercial con Magister En  Ciencias de la Educación, Madre de tres hermosa mujeres, y abuela de dos bellos nietos. estoy al frente del ministerio desde hace 3 años para la Gloria de Dios, solo la mano poderosa del Señor me ha sostenido y me ha guiado para estar al servicio de El en este ministerio, sirvo al Señor con amor y dedicación, cuidando cada detalle dentro del. Ministerio para el engrandecimiento de su obra. Cuando  veo lo maravilloso que ha sido Dios conmigo  en darme la dicha de ser Mujer y llenarme de grandes talentos no me queda sino agradecerle atraves de mi servicio.", 
         foto_lider: elizabeth,
         id_gallery: ""
     },
@@ -72,7 +73,7 @@ export const ministerios = [
         description: "El ministerio de Amor tiene como finalidad llevar una labor de índole social dónde se predique el amor de Dios no solo con palabras sino con muestra prácticas de amor. Dónde se puedan atender las necesidades no solo de la iglesia local sino en en diversas comunidades. Le llamamos amor en acción.",
         lider: "Pastor Virgilio Reyes y esposa Marielys de Reyes",
         bio_lider: "",
-        foto_lider: vm,
+        foto_lider: amor,
         id_gallery: ""
     },
     {

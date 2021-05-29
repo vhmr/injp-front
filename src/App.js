@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Layout />
       <a
-        href="https://wa.me/042433032361"
+        href="https://wa.me/04142583855"
         class="whatsapp_float"
         target="_blank"
         rel="noopener noreferrer"

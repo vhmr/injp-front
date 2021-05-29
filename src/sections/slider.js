@@ -18,7 +18,7 @@ const Home = () => {
     }, []) */
 
     return(
-      <Slider className="slider-wrapper" autoplay={10000}>
+      <Slider className="slider-wrapper" autoplay={5000}>
 			{content.map((item, index) => (
 				<div
 					key={index}
@@ -27,12 +27,12 @@ const Home = () => {
 				>
 					<div className="inner">
 						<h1>{item.title}</h1>
-						<p>{item.description}</p>
+						<p style={{ fontSize: 20}}>{item.description}</p>
 					</div>
 					<section>
 						<img src={item.userProfile} alt={item.user} />
 						<span>
-							Posted by <strong>{item.user}</strong>
+							Dictado por <strong>{item.user}</strong>
 						</span>
 					</section>
 				</div>

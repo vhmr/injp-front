@@ -71,15 +71,15 @@ const AddressMap=()=>{
              >
                <div className={classes.parrafo}>
                     Para comunicarte con nosotros, estos son nuestros datos de contacto:<br></br>
-                    <FaPhone /> 0592385028592<br></br>
+                    <FaPhone /> (0414) 258-38-55 - (0414) 283-08-87<br></br>
                     <FaMailBulk /> nueva.jerusalenvzla@gmail.com<br></br>
-                    <FaMapMarkerAlt />                 
+                    <FaMapMarkerAlt /> Parroquia Altagracia. La pastora. Esquina Las Delicias, transversal Santa Eduviguis, al lado del Centro Logístico de Cantv. Planta baja edifico de baldosas negras. (La cruz roja)                
                </div>
                <div className={classes.parrafo}>
-                    Nuestros datos bancarios son:<br></br>
-                    <FaPhone /> 0592385028592<br></br>
-                    <FaMailBulk /> nueva.jerusalenvzla@gmail.com<br></br>
-                    <FaWallet /> cuentas:                
+                    Donativos:<br></br>
+                    <FaPhone /> (0424)256-80-69<br></br>
+                    <FaWallet /> Banco: BBVA - (0108) <br></br>              
+                    <FaMailBulk /> Cédula: 10.172.648
                </div>
              </Grid>
              <Grid

@@ -61,13 +61,13 @@
 .btn--medium:hover,
 .btn--mobile:hover {
   transition: all 0.3s ease-out;
-  background: #fff;
-  color: #242424;
+  background: #101010;
+  color: #fff;
 }
 
 .btn--wide:hover {
   transition: all 0.2s ease-out;
-  background-color: #211950;
+  background-color: #101010;
   color: #fff;
   border: 1px solid #fff;
 }

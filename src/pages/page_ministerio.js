@@ -63,6 +63,13 @@ const Card = () => {
   let pique = url.split("/");
   let id = pique[4];
 
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, []);
+
   let ministerio = ministerios.find( m => m.id === id)
 
   return (
