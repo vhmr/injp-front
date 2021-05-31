@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { ministerios } from "../shared/ministerios";
 import Actv from "../sections/gallery";
-
+import '../ministerio.css'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -74,7 +74,7 @@ const Card = () => {
 
   return (
     <>
-      <Box>
+      <Box className="img_postal2" style={{backgroundImage:`url(${ministerio.imagen_postal})`}}>
       <Grid
         direction="row"
         justify="center"
@@ -83,12 +83,6 @@ const Card = () => {
         xs={12}
         align="center"
       >
-        <img
-          className={classes.img_postal}
-          src={ministerio.imagen_postal}
-          alt="iglesia"
-          style={{filter: 'grayscale(100%)'}}
-        />
       </Grid>
     </Box>
     <Box className={classes.root}>

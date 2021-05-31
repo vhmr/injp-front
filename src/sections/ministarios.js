@@ -9,7 +9,6 @@ import CardHeader from "../components/card/CardHeader";
 import CardBody from "../components/card/CardBody";
 import { Button } from "../components/Button";
 import { ministerios } from "../shared/ministerios";
-import { Get, UrlServer, UrlImages } from "../services/apiService";
 
 const useStyles = makeStyles((theme) => ({
   root: {

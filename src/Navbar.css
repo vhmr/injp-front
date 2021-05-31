@@ -1,5 +1,5 @@
 .navbar {
-  background: #0000008a;
+  background: rgba(0,0,0,0.5);
   height: 80px;
   display: flex;
   justify-content: center;

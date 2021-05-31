@@ -1,8 +1,8 @@
 import diacono3 from "../images/miguelerly.jpeg";
 import diacono1 from "../images/astudillos.jpeg";
-import diacono2 from "../images/henryjaqui.jpeg";
+import diacono2 from "../images/IMG_8160.JPG";
 import liderD from "../images/ely.jpeg";
-import liderA from "../images/anny.jpeg";
+import liderA from "../images/IMG_8152.JPG";
 import secer from "../images/marvel.jpeg";
 
 export const team = [

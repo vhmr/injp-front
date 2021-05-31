@@ -25,6 +25,15 @@ function Navbar() {
     }
     setClick(false);
   }
+
+  let scroll2= (id) =>{
+    if(document.getElementById(id) !== null) {
+      window.scroll({
+        top: (document.getElementById(id).offsetTop) -70,
+        behavior: 'smooth'
+      })
+    }
+  }
   
   const handleClick = () => {
     setClick(!Click);
@@ -43,6 +52,11 @@ function Navbar() {
   };
 
   useEffect(() => {
+    let url = window.location.href;
+    let pique = url.split("/");
+    let id = pique[3];
+    scroll2(id)
+
     showButton();
     window.scroll({
       top: 0,
