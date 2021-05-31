@@ -1,5 +1,5 @@
 import va from '../images/victoralba.jpeg';
-import anny from '../images/anny.jpeg';
+import anny from '../images/IMG_8152.JPG';
 import elizabeth from '../images/ely.jpeg';
 import vm from '../images/virgilimary.jpeg';
 import mda1 from "../images/mda.jpeg";
@@ -7,7 +7,8 @@ import mda2 from "../images/mda2.jpeg";
 import mdj1 from "../images/mdj1.jpg";
 import mdj2 from "../images/mdj2.jpg";
 import mdt1 from "../images/mdt1.jpg";
-import mp from "../images/predicacion2.jpg";
+import mp from "../images/IMG_E8166.JPG";
+import md from "../images/IMG_8132.JPG";
 import amor from "../images/lideramor.jpeg";
 
 export const ministerios = [
@@ -16,7 +17,7 @@ export const ministerios = [
         title: "Ministerio Pastoral",
         extracto:"Encargados de llevar el alimento espíritual a la iglesia, servir al redil de nuestro Señor y cuidado de las familias de la congregación. Predicar de manera clara y con autoridad la Palabra de Dios.",
         button: "Ver MÁS",
-        image: "https://i.imgur.com/DvmN8Hx.jpg",
+        image: mp,
         imagen_postal: mp,
         description: "Los pastores tendrán bajo su responsabilidad el cuidado de la congregación. Llevar alimento fresco a través de la palabra de Dios. Protección contra la falsa enseñanza. Administración y gobierno de los asuntos de la iglesia. Estímulo y guía para los hermanos.",
         lider: "Partor Virgilio Reyes y su esposa Marielys Castro",
@@ -43,8 +44,8 @@ export const ministerios = [
         title: "Ministerio de Damas",
         extracto:"Mujeres unidas para el servicio y oración de nuestras iglesia, llevan el evangelio.",
         button: "Ver MÁS",
-        image: "https://i.imgur.com/DvmN8Hx.jpg",
-        imagen_postal: "",
+        image: md,
+        imagen_postal: md,
         description: "El Ministerio de damas Servidoras de Dios , tiene el propósito de alcanzar más mujeres para Dios y prepararlas espiritualmente con principios biblicos  y así ser instrumento de bendición dentro de su hogar, Iglesia  y sociedad. Nuestras reuniones son cada  quince días  donde tenemos la oportunidad de animarnos las unas a  las otras  recibir enseñanzas y estar en comunión como dice la palabra en Salmo 133:1. Cada uno de nuestros servicios especiales tienen alcance envangelistico, tiempo de oración, dinámicas y compartir. Los  temas a tratar son de interés para la mujer de hoy,dichos estudios  están dirigidos por grandes hijas  de Dios, con conocimientos profundas en la palabra.",
         lider: "Elizabeth Rico",
         bio_lider:"Mi nombre es Ruth Elizabeth Rico,  profesora en Educación comercial con Magister En  Ciencias de la Educación, Madre de tres hermosa mujeres, y abuela de dos bellos nietos. estoy al frente del ministerio desde hace 3 años para la Gloria de Dios, solo la mano poderosa del Señor me ha sostenido y me ha guiado para estar al servicio de El en este ministerio, sirvo al Señor con amor y dedicación, cuidando cada detalle dentro del. Ministerio para el engrandecimiento de su obra. Cuando  veo lo maravilloso que ha sido Dios conmigo  en darme la dicha de ser Mujer y llenarme de grandes talentos no me queda sino agradecerle atraves de mi servicio.", 

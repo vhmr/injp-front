@@ -7,6 +7,7 @@ import pastores1 from "../images/reyes.jpeg";
 import partores2 from "../images/victoralba.jpeg";
 import banner from "../images/banner.jpg";
 import { team } from "../shared/team";
+import '../about.css'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     width: "100%",
     paddingTop: 40,
-    paddingBottom: 40,
   },
   title: {
     paddingTop: 20,
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 60,
     fontSize: 18,
     textAlign: "justify",
-    lineHeight: 1.7
+    lineHeight: 1.7,
   },
   parrafo2: {
     padding: 20,
@@ -61,7 +61,7 @@ const About = () => {
 
   return (
     <div>
-      <Box>
+      <Box className="img_postal" style={{backgroundImage:`url(${banner})`}}>
         <Grid
           direction="row"
           justify="center"
@@ -70,15 +70,9 @@ const About = () => {
           xs={12}
           align="center"
         >
-          <img
-            className={classes.img_postal}
-            src={banner}
-            alt="iglesia"
-            style={{filter: 'grayscale(100%)'}}
-          />
         </Grid>
       </Box>
-      <Box className={classes.root}>
+      <Box style={{ backgroundColor: '#1e1e1e', color: '#fff'}}>
         <Grid
           container
           direction="row"
@@ -96,6 +90,7 @@ const About = () => {
           justify="center"
           alignItems="center"
           xs={12}
+          style={{ backgroundColor: '#1e1e1e', color: '#fff'}}
         >
           <Grid
             direction="row"
@@ -111,7 +106,7 @@ const About = () => {
           </Grid>
         </Grid>
       </Box>
-      <Box className={classes.root}>
+      <Box style={{ backgroundColor: '#1e1e1e', color: '#fff'}}>
         <Grid
           container
           direction="row"

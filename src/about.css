@@ -1,4 +1,4 @@
-.img_postal2{
+.img_postal{
 	background-attachment: fixed !important;
 	background-repeat: no-repeat !important;
 	background-position: center center !important;
@@ -7,10 +7,3 @@
 	width: 100vW;
 }
 
-
-.imgp {
-	width: 70%;
-	height: auto;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px #ccc;
-}

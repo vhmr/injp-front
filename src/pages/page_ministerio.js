@@ -46,11 +46,6 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto',
     boxShadow: "0, 5, 10, 0, #331ba8",
   },
-  imgp: {
-    width: '70%',
-    height: 'auto',
-    boxShadow: "0, 5, 10, 0, #331ba8",
-  },
   img_postal: {
     width: "100%",
     height: "auto",
@@ -149,7 +144,7 @@ const Card = () => {
             align="center"
           >
             <img
-              className={classes.imgp}
+              className="imgp"
               src={ministerio.foto_lider}
               alt="iglesia"
             />

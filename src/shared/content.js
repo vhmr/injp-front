@@ -1,4 +1,4 @@
-import slider1 from "../images/slider/slider1.jpeg";
+import slider1 from "../images/slider/slider1.jpg";
 import slider2 from "../images/slider/slider2.jpg";
 import slider3 from "../images/slider/slider3.jpg";
 import slider4 from "../images/slider/slider4.jpg";
@@ -9,12 +9,11 @@ import victor from "../images/devo/victor.png"
 
 export const content = [
   {
-    title: "Vulputate Mollis Ultricies Fermentum Parturient",
-    description:
-      "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis.",
+    title: "Culto Dominical",
+    description: "Servicio dominical  7:30am - 9:30 - 10:30. Tema principal: Una vida desinteresada a travéz del servicio.",
     image: slider1,
-    user: "Luan Gjokaj",
-    userProfile: "https://i.imgur.com/JSW6mEk.png",
+    user: "Ps. Virgilio Reyes",
+    userProfile: virgilio,
   },
   {
     title: "Servicio de oración",
