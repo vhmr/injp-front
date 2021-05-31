@@ -10,11 +10,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     padding: 40,
-    backgroundColor: "#fbfcfd",
+    backgroundColor: "#1e1e1e",
   },
   title: {
     paddingTop: 40,
     paddingBottom: 40,
+    color: 'white'
   },
   box: {
     boxShadow: "0, 5, 10, 0, #331ba8",
@@ -50,7 +51,7 @@ const Predicacion = (props) => {
         />
       <div className={classes.paddingButton}>
         <Link to={'//youtube.com/channel/UCrbqmYxApdICQJXjPY6EFsw'} target='_blank'>          
-          <Button buttonSize="btn--wide" buttonStyle="btn--outline-dark">
+          <Button buttonSize="btn--wide" buttonStyle="btn--outline">
               Ver más...
           </Button>
         </Link>

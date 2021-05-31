@@ -22,7 +22,7 @@ const Home = () => {
 			{content.map((item, index) => (
 				<div
 					key={index}
-					className="slider-content"
+					className="slider-content slider-img-fondo"
 					style={{ background: `url('${item.image}') no-repeat center center` }}
 				>
 					<div className="inner">
@@ -38,23 +38,7 @@ const Home = () => {
 				</div>
 			))}
 		</Slider>
-/*       <Carousel
-        renderCenterLeftControls={({ previousSlide }) => (
-          <button onClick={previousSlide}>Previous</button>
-        )}
-        renderCenterRightControls={({ nextSlide }) => (
-          <button onClick={nextSlide}>Next</button>
-        )}
-        autoplay={true}
-        width="100%"
-        height="800px"
-        style={{ margin: "0px", overflow: "hidden"}}
-        autoplayInterval={5000}
-      >
-        {content.map((item, index) => (
-          <img src={`${UrlImages}/${item.url}`} style={{ width: "100%", height: "auto"}}/>
-        ))}
-      </Carousel> */
+
     );
 
 };

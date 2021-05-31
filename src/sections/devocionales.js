@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
@@ -8,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { devocional } from "../shared/devocional";
 import { Button } from "../components/Button";
 import "../devo.css";
-import { Get, UrlServer } from "../services/apiService";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +52,7 @@ const Devocionales = (props) => {
         alignItems="center"
         xs={12}
       >
-        <Typography className={classes.title} variant="h4" component="h4">
+        <Typography className={classes.title} variant="h2" component="h2">
           Devocionales
         </Typography>
       </Grid>
@@ -61,7 +60,7 @@ const Devocionales = (props) => {
         <div className="mask">
           <ul>
             {devocional.map((item, index) => (
-              <li className={`anim${index + 1}`} key={index}>
+              <li className={`anim${index + 1}`} key={index} style={{borderLeft: "4px solid #b10404", padding: 20, backgroundColor: 'rgba(255,255,255, 0.7)', borderRadius: '4px 4px 3px', height: "40vh !important"}}>
                 <div className="quote">{item.title}</div>
                 <div className="source">- {item.extracto}</div>
                 <section>

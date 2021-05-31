@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     paddingTop: 40,
     paddingBottom: 40,
-    backgroundColor: "#fbfcfd",
+    backgroundColor: "#f1f1f1",
   },
   title: {
     paddingTop: 80,

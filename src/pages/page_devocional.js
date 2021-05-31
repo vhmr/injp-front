@@ -9,9 +9,13 @@ import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
-
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { devocional } from "../shared/devocional";
+import {
+  FaArrowRight
+} from 'react-icons/fa';
+
 import "../devo.css";
 
 
@@ -77,16 +81,21 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-let url = window.location.href;
-let pique = url.split("/");
-let id = pique[4];
-
 const Devocional = () => {
+
+  let url = window.location.href;
+  let pique = url.split("/");
+  let id = pique[4];
 
   const classes = useStyles();
   const content = devocional.find( m => m.id === id)
 
-  console.log(content)
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, []);
 
   return (
     <div className = {classes.root}>
@@ -130,11 +139,27 @@ const Devocional = () => {
               </Button>
             </CardActions>
           </Card>
-          <Card className = {[classes.root_card_blog, classes.mt10]}>
-            <Typography gutterBottom variant = "h4" component = "h2" align = "center" className={classes.title}>
-              Últimos Post
-            </Typography>
-          </Card>
+          <Typography gutterBottom variant = "h4" component = "h2" align = "center" className={classes.title} style={{paddingTop:7}}>
+            Últimos Post
+          </Typography>
+          {devocional.map(devocional => (
+            <Card className = {[classes.root_card_blog, classes.mt10]} style ={{backgroundColor: "#fff", cursor: 'pointer'}}>
+              <Typography gutterBottom variant = "body2" component = "p" style={{fontWeight: 'bold'}}>
+                {devocional.title}
+              </Typography>
+              <Typography gutterBottom variant = "body2" component = "p">
+                autor: {devocional.user}
+              </Typography>
+              <div align="right">
+              <Link to={`/devocional/${devocional.id}`}>          
+                <Button variant = "contained" color = "secondary" title="Ver el Contenido">
+                  <FaArrowRight/>
+                </Button>
+              </Link>    
+              </div>
+            </Card>
+            ))
+          }
         </Grid>
       </Grid>
     </div>
