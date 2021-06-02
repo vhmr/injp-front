@@ -4,7 +4,6 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { ministerios } from "../shared/ministerios";
-import Actv from "../sections/gallery";
 import '../ministerio.css'
 
 
@@ -161,9 +160,8 @@ const Card = () => {
               <p dangerouslySetInnerHTML={{ __html: ministerio.bio_lider }}></p>
             </div>
           </Grid>
-        </Grid>          
+        </Grid>
       </Grid>
-      <Actv />
     </Box>
   </>  
   );

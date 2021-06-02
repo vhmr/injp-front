@@ -70,13 +70,13 @@ const Galleria = () => {
           </Modal>
         ) : null}
       </ModalGateway>
-      <div className={classes.paddingButton}>
+{/*       <div className={classes.paddingButton}>
         <Link to="/actividades">          
           <Button buttonSize="btn--wide" buttonStyle="btn--outline-dark">
               Ver más...
           </Button>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

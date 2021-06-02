@@ -42,7 +42,7 @@ const Predicacion = (props) => {
         </Typography>
       </Grid>
       <ReactPlayer
-          url='https://www.youtube.com/watch?v=Ff19ucfbwyw'
+          url='https://www.youtube.com/watch?v=fGDZ5nWP68I'
           className='react-player'
           playing={false}
           width='100%'

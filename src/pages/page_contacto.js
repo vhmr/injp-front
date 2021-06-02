@@ -8,7 +8,7 @@ import { FaWallet, FaPhone, FaMailBulk, FaMapMarkerAlt  } from 'react-icons/fa';
 
 const useStyles = makeStyles((theme) => ({
     googlemapcode: {
-        border: 0
+        border: 0,
     },
     root: {
         flexGrow: 1,
@@ -72,7 +72,7 @@ const AddressMap=()=>{
                <div className={classes.parrafo}>
                     Para comunicarte con nosotros, estos son nuestros datos de contacto:<br></br>
                     <FaPhone /> (0414) 258-38-55 - (0414) 283-08-87<br></br>
-                    <FaMailBulk /> nueva.jerusalenvzla@gmail.com<br></br>
+                    <FaMailBulk /> nueva.jerusalenvzla@gmail.com<br></br><br></br>
                     <FaMapMarkerAlt /> Parroquia Altagracia. La pastora. Esquina Las Delicias, transversal Santa Eduviguis, al lado del Centro Logístico de Cantv. Planta baja edifico de baldosas negras. (La cruz roja)                
                </div>
                <div className={classes.parrafo}>

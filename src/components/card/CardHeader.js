@@ -8,7 +8,6 @@ const CardHeader = (props) => {
   };
   return (
     <div style={style} id={image} className="card-header">
-      <h4 className="card-header--title">News</h4>
     </div>
   );
 };

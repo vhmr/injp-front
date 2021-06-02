@@ -43,6 +43,10 @@ const Devocionales = (props) => {
     })
   }, [props]) */
 
+  const truncated = (string, n) => {
+      return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+  }
+
   return (
     <Box className={classes.root} id="devocionales">
       <Grid
@@ -62,7 +66,7 @@ const Devocionales = (props) => {
             {devocional.map((item, index) => (
               <li className={`anim${index + 1}`} key={index} style={{borderLeft: "4px solid #b10404", padding: 20, backgroundColor: 'rgba(255,255,255, 0.7)', borderRadius: '4px 4px 3px', height: "40vh !important"}}>
                 <div className="quote">{item.title}</div>
-                <div className="source">- {item.extracto}</div>
+                <div className="source">- {truncated(item.extracto, 150)}</div>
                 <section>
                   <img src={item.userProfile} alt={item.user} />
                   <span>
