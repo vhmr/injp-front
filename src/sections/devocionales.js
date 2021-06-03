@@ -55,6 +55,7 @@ const Devocionales = (props) => {
         justify="center"
         alignItems="center"
         xs={12}
+        sm={12}
       >
         <Typography className={classes.title} variant="h2" component="h2">
           Devocionales

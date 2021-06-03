@@ -133,11 +133,11 @@ const Devocional = () => {
                 {content.user}
               </Typography>
             </CardContent>
-            <CardActions align = "right">
+{/*             <CardActions align = "right">
               <Button variant = "contained" color = "secondary">
                 Ver Perfil
               </Button>
-            </CardActions>
+            </CardActions> */}
           </Card>
           <Typography gutterBottom variant = "h4" component = "h2" align = "center" className={classes.title} style={{paddingTop:7}}>
             Últimos Post

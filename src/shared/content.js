@@ -10,7 +10,7 @@ import victor from "../images/devo/victor.png"
 export const content = [
   {
     title: "Culto Dominical",
-    description: "Servicio dominical  7:30am - 9:30 - 10:30. Tema principal: Una vida desinteresada a travéz del servicio.",
+    description: `Servicio dominical  7:30am - 9:30 - 10:30. Tema principal: La belleza de una vida desinteresada a tráves del servicio. - Tema: De hombre a hombre (Ps. Victor Montoya)`,
     image: slider1,
     user: "Ps. Virgilio Reyes",
     userProfile: virgilio,
@@ -18,7 +18,7 @@ export const content = [
   {
     title: "Servicio de oración",
     description:
-      "Todo los días Martes a las 5:00pm",
+      "Todo los días Martes a las 5:00pm - Tema: Requisitos para que Dios responda una oración una oración",
     image: slider2,
     user: "Ps. Virgilio Reyes",
     userProfile: virgilio,

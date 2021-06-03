@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import pastores1 from "../images/reyes.jpeg";
 import partores2 from "../images/victoralba.jpeg";
+import equipo from "../images/equipo.jpeg"
 import banner from "../images/banner.jpg";
 import { team } from "../shared/team";
 import '../about.css'
@@ -40,9 +41,14 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0, 5, 10, 0, #331ba8",
   },
   imgp: {
-    width: 400,
+    width: 380,
     height: 500,
     boxShadow: "0, 5, 10, 0, #331ba8",
+  },
+  imgportal: {
+    width: '70%',
+    height: 'auto',
+    paddingBottom: 50
   },
   img_postal: {
     width: "100%",
@@ -227,7 +233,19 @@ const About = () => {
           <Typography className={classes.title} variant="h4" component="h4">
             Equipo de trabajo
           </Typography>
-      </Grid>        
+      </Grid>
+        <Grid           
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          xs={12}>
+          <img
+            className={classes.imgportal}
+            src={equipo}
+            alt="iglesia"
+          />
+        </Grid>        
         <Grid
           container
           direction="row"
