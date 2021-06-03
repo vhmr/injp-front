@@ -18,7 +18,7 @@ export const content = [
   {
     title: "Servicio de oración",
     description:
-      "Todo los días Martes a las 5:00pm - Tema: Requisitos para que Dios responda una oración una oración",
+      "Todo los días Martes a las 5:00pm - Tema: Requisitos para que Dios responda una oración",
     image: slider2,
     user: "Ps. Virgilio Reyes",
     userProfile: virgilio,

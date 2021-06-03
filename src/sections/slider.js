@@ -32,7 +32,7 @@ const Home = () => {
 					<section>
 						<img src={item.userProfile} alt={item.user} />
 						<span>
-							Dictado por <strong>{item.user}</strong>
+							Expositor: <strong>{item.user}</strong>
 						</span>
 					</section>
 				</div>

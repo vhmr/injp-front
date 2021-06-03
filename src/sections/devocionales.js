@@ -71,7 +71,7 @@ const Devocionales = (props) => {
                 <section>
                   <img src={item.userProfile} alt={item.user} />
                   <span>
-                    Posted by <strong>{item.user}</strong>
+                    Por <strong>{item.user}</strong>
                   </span>
                 </section>
                 <div className={classes.paddingButton}>

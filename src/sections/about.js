@@ -66,7 +66,7 @@ const About = () => {
           xs={12}
         >
           <div className={classes.parrafo}>
-          Somos una iglesia fiel al Señor Jesucristo y su palabra, compuesta por familias consagradas a serviri al Señor y expandir el evangelio en la comunidad.
+          Somos una iglesia fiel al Señor Jesucristo y su palabra, compuesta por familias consagradas a servir al Señor y expandir el evangelio en la comunidad.
 
           </div>
           <div className={classes.paddingButton}>
