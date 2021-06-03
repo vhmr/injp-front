@@ -69,7 +69,7 @@ function Navbar() {
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           
-            <Link to="/" className="navbar-logo" onClick={scroll("slider")}>
+            <Link to="/" className="navbar-logo" onClick={scroll("")}>
               <img src={logo} alt="inj" style={{width: 100}} />
             </Link>
           <div className="navbar-container contanier">
