@@ -78,27 +78,27 @@ function Navbar() {
             </div>
             <ul className={Click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <div className="nav-links" onClick={scroll("about")}> 
+                <div className="nav-links" onClick={scroll("/about")}> 
                   Nosotros
                 </div>
               </li>
               <li className="nav-item">
-                <div className="nav-links"  onClick={scroll("devocionales")}>
+                <div className="nav-links"  onClick={scroll("/devocionales")}>
                   Devocionales
                 </div>
               </li>
               <li className="nav-item">
-                <div className="nav-links" onClick={scroll("predicacion")}>
+                <div className="nav-links" onClick={scroll("/predicacion")}>
                   Predicaciones
                 </div>
               </li>
               <li className="nav-item">
-                <div className="nav-links" onClick={scroll("ministerio")}>
+                <div className="nav-links" onClick={scroll("/ministerio")}>
                   Ministerios
                 </div>
               </li>
               <li className="nav-item">
-                <div className="nav-links" onClick={scroll("contact")}>
+                <div className="nav-links" onClick={scroll("/contact")}>
                   Contactos
                 </div>
               </li>

@@ -31,9 +31,6 @@ const useStyles = makeStyles((theme) => ({
   content: {
     lineHeight: 2, padding: '20px', textAlign: 'justify', fontFamily: 'Libre Baskerville, serif'
   },
-  media: {
-    height: 350,
-  },
   media_all: {
     height: 140
   },
@@ -105,7 +102,7 @@ const Devocional = () => {
         </Grid>
         <Grid  item md = {8} spacing = {2}>
           <Card>
-            <CardMedia component = "img" alt = "imagen_fondo" image ={content.image} className={classes.media}/>
+            <CardMedia component = "img" alt = "imagen_fondo" image ={content.image} className="media" />
             <CardContent>
               <Typography gutterBottom variant="h3" component="h2" className={classes.title}>
                 {content.title}

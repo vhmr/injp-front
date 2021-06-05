@@ -65,7 +65,7 @@ const Devocionales = (props) => {
         <div className="mask">
           <ul>
             {devocional.map((item, index) => (
-              <li className={`anim${index + 1}`} key={index} style={{borderLeft: "4px solid #b10404", padding: 20, backgroundColor: 'rgba(255,255,255, 0.7)', borderRadius: '4px 4px 3px', height: "40vh !important"}}>
+              <li className={`anim${index + 1}`} key={index}>
                 <div className="quote">{item.title}</div>
                 <div className="source">- {truncated(item.extracto, 150)}</div>
                 <section>
