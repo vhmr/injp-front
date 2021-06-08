@@ -309,7 +309,7 @@ section span strong {
 
 @media (max-width: 600px) {
   .slider {
-    height: 60%;
+    height: 63%;
     width: 90%;
     margin: 40px auto 0;
     overflow: visible;
@@ -322,7 +322,7 @@ section span strong {
   }
   .mask {
     overflow: hidden;
-    height: 440px;
+    height: 460px;
   }
   .slider li {
     width: 100%;

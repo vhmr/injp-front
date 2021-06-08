@@ -133,6 +133,7 @@ const Card = () => {
         alignItems="center"
         spacing={2}
         xs={12}
+        style={{ paddingTop: 20}}
       >
           <Grid
             direction="row"

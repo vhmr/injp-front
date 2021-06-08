@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
       title: {
         paddingTop: 40,
         paddingBottom: 40,
+        textAlign: 'center'
       },
       parrafo: {
         padding: 30,

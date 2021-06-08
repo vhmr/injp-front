@@ -391,10 +391,8 @@ button:hover {
 
   .slider-content section {
     position: absolute;
-    bottom: 40px;
-    left: 20px;
-    width: 145px;
-    height: 29px;
+    bottom: 20px;
+    left: 30px;
   }
 
   .slider-content section img {
