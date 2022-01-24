@@ -1,3 +1,5 @@
+import { string } from "prop-types";
+
 export default {
     name: 'ministery',
     title: 'Ministery',
@@ -6,6 +8,20 @@ export default {
         {
             name: 'title',
             title: 'Title',
+            type: 'string',
+        },
+        {
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {
+              source: 'title',
+              maxLength: 96,
+            },
+        },
+        {
+            name: 'extracto',
+            title: 'Extracto',
             type: 'string',
         },
         {
@@ -29,11 +45,6 @@ export default {
             options: {
               hotspot: true,
             },
-        },
-        {
-            name: 'bio',
-            title: 'Bio',
-            type: 'blockContent',
         },
         {
             name: 'description',

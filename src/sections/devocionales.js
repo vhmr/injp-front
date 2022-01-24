@@ -6,8 +6,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { devocional } from "../shared/devocional";
 import { Button } from "../components/Button";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from '../sanity'
 import "../devo.css";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,19 +34,35 @@ const useStyles = makeStyles((theme) => ({
 
 const Devocionales = (props) => {
   const classes = useStyles();
-  //const [devocionales, setDevocionales] = useState([])
+  const [devocionales, setDevocionales] = useState([])
+	const builder = imageUrlBuilder(sanityClient);
+	const urlFor = (source) => {
+	  return builder.image(source);
+	}
 
-/*   useEffect(() => {
-    Get(`${UrlServer}devocionales`, (res) => {
-      let data = JSON.parse(res);
-      console.log(data)
-      setDevocionales(data.posts)
-    })
-  }, [props]) */
-
-  const truncated = (string, n) => {
-      return string?.length > n ? string.substr(0, n - 1) + '...' : string;
-  }
+  useEffect(() => {
+		sanityClient
+		  .fetch(`*[_type == "post"]{
+        _id,
+        _publishedAt,
+        title,
+        description,
+        extracto,
+        mainImage,
+        categories -> {
+        title,
+        },
+        tags,
+        body,
+        usuario -> {
+         name,
+         image,
+         bio
+        },
+      }`)
+		  .then((data) => setDevocionales(data))
+		  .catch(console.error);
+  }, [])
 
   return (
     <Box className={classes.root} id="devocionales">
@@ -64,18 +81,18 @@ const Devocionales = (props) => {
       <div className="slider">
         <div className="mask">
           <ul>
-            {devocional.map((item, index) => (
+            {devocionales.map((item, index) => (
               <li className={`anim${index + 1}`} key={index}>
                 <div className="quote">{item.title}</div>
-                <div className="source">- {truncated(item.extracto, 150)}</div>
-                <section>
-                  <img src={item.userProfile} alt={item.user} />
+                <div className="source"> - {item.extracto}</div>
+                <section style={{ paddingTop: 20, paddingLeft:20}}>
+                  <img className="author_img" src={urlFor(item.usuario.image).width(60).url()} alt={item.usuario.name} />
                   <span>
-                    Por <strong>{item.user}</strong>
+                    Por <strong>{item.usuario.name}</strong>
                   </span>
                 </section>
                 <div className={classes.paddingButton}>
-                  <Link to={`/devocional/${item.id}`}>          
+                  <Link to={`/devocional/${item._id}`}>          
                     <Button buttonSize="btn--medium" buttonStyle="btn--outline-dark">
                         Ver más...
                     </Button>

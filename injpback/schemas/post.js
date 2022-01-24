@@ -18,6 +18,11 @@ export default {
       },
     },
     {
+        name: 'extracto',
+        title: 'Extracto',
+        type: 'string',
+    },
+    {
       name: 'usuario',
       title: 'Author',
       type: 'reference',
@@ -34,8 +39,8 @@ export default {
     {
       name: 'categories',
       title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      type: 'reference',
+      to: {type: 'category'},
     },
     {
       name: 'tags',

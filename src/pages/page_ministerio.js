@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { ministerios } from "../shared/ministerios";
 import '../ministerio.css'
+import axios from 'axios'
+export const UrlServer = "http://127.0.0.1:8000/api/"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -57,18 +59,26 @@ const Card = () => {
   let pique = url.split("/");
   let id = pique[4];
 
+  const [ministerio, setMinisterio] = useState()
+
   useEffect(() => {
+
     window.scroll({
       top: 0,
       behavior: 'smooth'
     })
-  }, []);
 
-  let ministerio = ministerios.find( m => m.id === id)
+    axios.get(`${UrlServer}ministerio/${id}`).then((res) => {
+        let data = res.data.ministery
+        console.log(data)
+        setMinisterio(data)
+    }).catch(err => console.log(err))
+
+  }, [id]);
 
   return (
     <>
-      <Box className="img_postal2" style={{backgroundImage:`url(${ministerio.imagen_postal})`}}>
+      <Box className="img_postal2" style={{backgroundImage:`url(http://127.0.0.1:8000${ministerio.imagen_ministery})`}}>
       <Grid
         direction="row"
         justify="center"
@@ -122,7 +132,7 @@ const Card = () => {
           >
             <img
               className={classes.img}
-              src={ministerio.imagen_postal}
+              src={ministerio.imagen_ministery}
               alt="iglesia"
             />
           </Grid> 
@@ -145,7 +155,7 @@ const Card = () => {
           >
             <img
               className="imgp"
-              src={ministerio.foto_lider}
+              src={ministerio.image_lider}
               alt="iglesia"
             />
           </Grid>          

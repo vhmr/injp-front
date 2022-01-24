@@ -25,18 +25,28 @@ body {
 }
 
 /* for mobile */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 640px) {
+  .footer-link-items {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-align-items: flex-start;
+      align-items: flex-start;
+      margin: 16px;
+      text-align: left;
+      width: 120px;
+      box-sizing: border-box;
+  }
     .whatsapp-icon {
         margin-top: 10px;
     }
 
     .whatsapp_float {
-        width: 40px;
-        height: 40px;
-        bottom: 20px;
-        right: 10px;
-        font-size: 22px;
-    }
+      width: 50px;
+      height: 50px;
+      bottom: 40px;
+      right: 30px;
+      font-size: 30px;
+  }
 }
 .MuiTypography-h4 {
   font-size: 2.125rem;

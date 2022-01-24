@@ -8,7 +8,10 @@ import Typography from "@material-ui/core/Typography";
 import CardHeader from "../components/card/CardHeader";
 import CardBody from "../components/card/CardBody";
 import { Button } from "../components/Button";
-import { ministerios } from "../shared/ministerios";
+import sanityClient from '../sanity'
+import imageUrlBuilder from "@sanity/image-url";
+import BlockContent from "@sanity/block-content-to-react";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,19 +39,31 @@ const useStyles = makeStyles((theme) => ({
 
 const Card = () => {
   const classes = useStyles();
-  //const [ministerios, setMinisterios] = useState([])
+  const [ministerios, setMinisterios] = useState([])
+  const builder = imageUrlBuilder(sanityClient);
+	const urlFor = (source) => {
+	  return builder.image(source);
+	}
 
-/*   useEffect(() => {
-    Get(`${UrlServer}ministerios`, (res) => {
-      let data = JSON.parse(res);
-      console.log(data)
-      setMinisterios(data.ministeries)
-    })
-  }, []) */
-
-  const truncated = (string, n) => {
-      return string?.length > n ? string.substr(0, n - 1) + '...' : string;
-  }
+   useEffect(() => {
+		sanityClient
+		  .fetch(`*[_type == "ministery"]{
+        _id,
+        _createdAt,
+        title,
+        description,
+        fotoLider,
+        mainImage,
+        extracto,
+        usuario -> {
+         name,
+         image,
+         bio,
+        },
+      }`)
+		  .then((data) => setMinisterios(data))
+		  .catch(console.error);
+    }, [])
 
   return (
     <Box className={classes.root} id="ministerio">
@@ -84,14 +99,14 @@ const Card = () => {
         >
           <article className="card">
             <CardHeader
-              image={item.image}
+              image={`${urlFor(item.mainImage).url()}`}
             />
             <CardBody
               title={item.title}
-              text={<div dangerouslySetInnerHTML={{ __html: truncated(item.description, 150)}}></div>}
+              text={item.extracto}
             />
             <div className={classes.paddingButton}>
-              <Link to={`/ministerio/${item.id}`}>          
+              <Link to={`/ministerio/${item._id}`}>          
                 <Button buttonSize="btn--medium" buttonStyle="btn--outline-dark">
                     Ver más...
                 </Button>

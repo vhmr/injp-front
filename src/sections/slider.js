@@ -1,21 +1,35 @@
 import React, { useState, useEffect } from "react";
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
-import Carousel from 'nuka-carousel';
-import { content } from "../shared/content";
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from '../sanity'
 import '../slider.css'
 
-const Home = () => {
 
-    //const [content, setContent] = useState(content)
+const SliderPrincipal = () => {
+	
+	const builder = imageUrlBuilder(sanityClient);
+	const urlFor = (source) => {
+	  return builder.image(source);
+	}
+    const [content, setContent] = useState([])
 
-/*     useEffect(() => {
-      Get(`${UrlServer}slider`, (res) => {
-        let data = JSON.parse(res);
-        console.log(data)
-        setContent(data.images)
-      })
-    }, []) */
+	useEffect(() => {
+		sanityClient
+		  .fetch(`*[_type == "slider"]{
+			_id,
+			_createdAt,
+			title,
+			description,
+			mainImage,
+			usuario -> {
+			 name,
+			 image
+			},
+		  }`)
+		  .then((data) => setContent(data))
+		  .catch(console.error);
+	  }, []);
 
     return(
       <Slider className="slider-wrapper" autoplay={5000}>
@@ -23,16 +37,16 @@ const Home = () => {
 				<div
 					key={index}
 					className="slider-content slider-img-fondo"
-					style={{ background: `url('${item.image}') no-repeat center center` }}
+					style={{ background: `url('${urlFor(item.mainImage).url()}') no-repeat center center` }}
 				>
 					<div className="inner">
 						<h1>{item.title}</h1>
 						<p style={{ fontSize: 20}}>{item.description}</p>
 					</div>
 					<section>
-						<img src={item.userProfile} alt={item.user} />
+						<img src={urlFor(item.usuario.image).width(100).url()} alt={item.usuario.name} />
 						<span>
-							Expositor: <strong>{item.user}</strong>
+							Expositor: <strong>{item.usuario.name}</strong>
 						</span>
 					</section>
 				</div>
@@ -43,4 +57,4 @@ const Home = () => {
 
 };
 
-export default Home;
+export default SliderPrincipal;

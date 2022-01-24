@@ -24,8 +24,6 @@ export default createSchema({
     post,
     usuario,
     category,
-    // When added to this list, object types can be used as
-    // { type: 'typename' } in other document schemas
     blockContent,
     ministery,
     slider,
