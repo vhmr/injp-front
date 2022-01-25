@@ -2,7 +2,7 @@ import { string } from "prop-types";
 
 export default {
     name: 'ministery',
-    title: 'Ministery',
+    title: 'Ministerios',
     type: 'document',
     fields: [
         {

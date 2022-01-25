@@ -11,6 +11,8 @@ import post from './post'
 import usuario from './usuario'
 import ministery from './ministery'
 import slider from './slider'
+import imagenes from './imagenes'
+import gallery from './gallery'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,5 +29,7 @@ export default createSchema({
     blockContent,
     ministery,
     slider,
+    imagenes,
+    gallery,
     ]),
 })
