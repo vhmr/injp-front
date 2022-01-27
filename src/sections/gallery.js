@@ -1,14 +1,10 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "../shared/photos";
-import { Button } from "../components/Button";
-import { Get, UrlServer, UrlImages } from "../services/apiService";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,15 +23,11 @@ const useStyles = makeStyles((theme) => ({
 const Galleria = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
-  //const [photos, setPhotos] = useState([])
+  const [photos, setPhotos] = useState([])
 
-/*   useEffect(() => {
-    Get(`${UrlServer}actividades`, (res) => {
-      let data = JSON.parse(res);
-      console.log(data)
-      setPhotos(data.images)
-    })
-  }, []) */
+   useEffect(() => {
+
+  }, [])
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
