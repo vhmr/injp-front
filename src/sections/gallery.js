@@ -4,7 +4,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos } from "../shared/photos";
+import { UrlImages } from '../services/apiService'
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from '../sanity'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,11 +25,58 @@ const useStyles = makeStyles((theme) => ({
 const Galleria = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
-  const [photos, setPhotos] = useState([])
+  const [photos2, setPhotos2] = useState([])
+	const builder = imageUrlBuilder(sanityClient);
+	const urlFor = (source) => {
+	  return builder.image(source);
+	}
 
-   useEffect(() => {
+  useEffect(() => {
+    
+    sanityClient
+    .fetch(`*[_type == "gallery" && title == 'general']{
+      title,
+      "imagenes": *[_type == "imagenes" && gallery._ref == ^._id ]
+    }`)		  
+    .then((data) => setPhotos2(data[0].imagenes))
+    .catch(console.error);
 
   }, [])
+
+  const photos = []
+  for (let index = 0; index < photos2.length; index++) {
+    
+    let src = photos2[index].mainImage.asset._ref
+   
+    if(index <= 3){
+      photos.push({
+        src: urlFor(src).url(),
+        width: 4,
+        height: 4,
+      })
+    } else if(index > 3 && index < 6){
+      photos.push({
+        src: urlFor(src).url(),
+        width: 4,
+        height: 4,
+      })
+    } else if(index === 7){
+      photos.push({
+        src: urlFor(src).url(),
+        width: 4500,
+        height: 1000
+      })
+    }
+    else{
+      photos.push({
+        src: urlFor(src).url(),
+        width: 4,
+        height: 3,
+      })
+    }
+  }
+
+  console.log(photos);
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -38,6 +87,7 @@ const Galleria = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
   };
+
   const classes = useStyles();
 
   return (
@@ -55,7 +105,7 @@ const Galleria = () => {
               currentIndex={currentImage}
               views={photos.map((x) => ({
                 ...x,
-                srcset: `${UrlImages}/${x.url}`,
+                srcset: `${urlFor(x.src).url()}`,
                 caption: x.id,
               }))}
             />

@@ -4,7 +4,6 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { devocional } from "../shared/devocional";
 import { Button } from "../components/Button";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from '../sanity'
