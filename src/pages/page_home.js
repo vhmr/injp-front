@@ -22,8 +22,8 @@ const Home = () => {
       <Header/>
       <About />
       <Predicacion />
-      <Devocionales />
       <Ministerios />
+      <Devocionales />
       <Actv />
     </div>
   );

@@ -26,6 +26,7 @@
     "react-modal-login": "^1.4.5",
     "react-photo-gallery": "^8.0.0",
     "react-player": "^2.9.0",
+    "react-portable-text": "^0.4.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-slick": "^0.27.12",

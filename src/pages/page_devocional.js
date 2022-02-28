@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
@@ -11,13 +10,12 @@ import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import { devocional } from "../shared/devocional";
-import {
-  FaArrowRight
-} from 'react-icons/fa';
-
+import {FaArrowRight} from 'react-icons/fa';
+import DevoContext from '../context/devocionalCotext'
+import imageUrlBuilder from "@sanity/image-url";
+import sanityClient from '../sanity'
+import PortableText from "react-portable-text";
 import "../devo.css";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,14 +82,43 @@ const Devocional = () => {
   let pique = url.split("/");
   let id = pique[4];
 
+  const builder = imageUrlBuilder(sanityClient);
+	const urlFor = (source) => {
+	  return builder.image(source);
+	}
+
   const classes = useStyles();
-  const content = devocional.find( m => m.id === id)
+  const [devocionales, setDevocionales] = useState([])
+  const devo = useContext(DevoContext)
+  const content = devo.devo.find(m => m._id === id)
+  const fecha = content.publishedAt.split('T')
 
   useEffect(() => {
     window.scroll({
       top: 0,
       behavior: 'smooth'
     })
+    sanityClient
+    .fetch(`*[_type == "post"]{
+      _id,
+      publishedAt,
+      title,
+      description,
+      extracto,
+      mainImage,
+      categories -> {
+      title,
+      },
+      tags,
+      body,
+      usuario -> {
+       name,
+       image,
+       bio
+      },
+    }`)
+    .then((data) => setDevocionales(data))
+    .catch(console.error);
   }, []);
 
   return (
@@ -102,19 +129,25 @@ const Devocional = () => {
         </Grid>
         <Grid  item md = {8} spacing = {2}>
           <Card>
-            <CardMedia component = "img" alt = "imagen_fondo" image ={content.image} className="media" />
+            <CardMedia component = "img" alt = "imagen_fondo" image ={urlFor(content.mainImage.asset._ref).url()} className="media" />
             <CardContent>
               <Typography gutterBottom variant="h3" component="h2" className={classes.title}>
                 {content.title}
               </Typography>
               <AvatarGroup maxc = {2} style={{ paddingBottom: '20px'}}>
-                <Avatar alt = "img_perfil" src = {content.userProfile}/>
+                <Avatar alt = "img_perfil" src = {urlFor(content.usuario.image.asset._ref).width(60).url()}/>
                 <Typography variant = "body2" className = {classes.userName} color = "textSecondary" component = "p">
-                  {content.user}
+                  {content.usuario.name}  -  Etiquetas: {content.tags} - Publicado: {fecha[0]} <br/>Categoría: {content.categories.title}
                 </Typography>
               </AvatarGroup>
               <Typography color = "textSecondary" component = "p">
-                <div dangerouslySetInnerHTML = {{ __html: content.description }} className={classes.content}/>
+                <PortableText 
+                    className={classes.content}
+                    dataset ={process.env.NEXT_PUBLIC_SANITY_DATASET}
+                    projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+                    content={content.body}
+                  />
+
               </Typography>
             </CardContent>
           </Card>
@@ -123,11 +156,11 @@ const Devocional = () => {
         <Grid item md = {3} spacing = {2}>
           <Card style = {{background: "rgba(0,0,0,0)"}}>
             <CardHeader className = {classes.userCard} avatar = {
-              <Avatar style = {{position: "absolute"}} alt = "img_perfil" src = {content.userProfile}/> } 
+              <Avatar style = {{position: "absolute"}} alt = "img_perfil" src = {urlFor(content.usuario.image.asset._ref).width(60).url()}/> } 
             />
             <CardContent>
               <Typography gutterBottom variant = "body2" component = "p" className = {classes.perfilName}>
-                {content.user}
+                {content.usuario.name}
               </Typography>
             </CardContent>
 {/*             <CardActions align = "right">
@@ -139,16 +172,16 @@ const Devocional = () => {
           <Typography gutterBottom variant = "h4" component = "h2" align = "center" className={classes.title} style={{paddingTop:7}}>
             Últimos Post
           </Typography>
-          {devocional.map(devocional => (
+          {devocionales.map(devocional => (
             <Card className = {[classes.root_card_blog, classes.mt10]} style ={{backgroundColor: "#fff", cursor: 'pointer'}}>
               <Typography gutterBottom variant = "body2" component = "p" style={{fontWeight: 'bold'}}>
                 {devocional.title}
               </Typography>
               <Typography gutterBottom variant = "body2" component = "p">
-                autor: {devocional.user}
+                autor: {devocional.usuario.name}
               </Typography>
               <div align="right">
-              <Link to={`/devocional/${devocional.id}`}>          
+              <Link to={`/devocional/${devocional._id}`}>          
                 <Button variant = "contained" color = "secondary" title="Ver el Contenido">
                   <FaArrowRight/>
                 </Button>

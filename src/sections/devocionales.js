@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -7,6 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "../components/Button";
 import imageUrlBuilder from "@sanity/image-url";
 import sanityClient from '../sanity'
+import DevoContext from '../context/devocionalCotext'
+
 import "../devo.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 const Devocionales = (props) => {
   const classes = useStyles();
   const [devocionales, setDevocionales] = useState([])
+  const { devo, setDevo} = useContext(DevoContext)
 	const builder = imageUrlBuilder(sanityClient);
 	const urlFor = (source) => {
 	  return builder.image(source);
@@ -43,7 +46,7 @@ const Devocionales = (props) => {
 		sanityClient
 		  .fetch(`*[_type == "post"]{
         _id,
-        _publishedAt,
+        publishedAt,
         title,
         description,
         extracto,
@@ -59,7 +62,7 @@ const Devocionales = (props) => {
          bio
         },
       }`)
-		  .then((data) => setDevocionales(data))
+		  .then((data) => setDevo(data))
 		  .catch(console.error);
   }, [])
 
@@ -80,7 +83,7 @@ const Devocionales = (props) => {
       <div className="slider">
         <div className="mask">
           <ul>
-            {devocionales.map((item, index) => (
+            {devo.map((item, index) => (
               <li className={`anim${index + 1}`} key={index}>
                 <div className="quote">{item.title}</div>
                 <div className="source"> - {item.extracto}</div>
